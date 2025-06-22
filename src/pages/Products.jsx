@@ -1,5 +1,10 @@
+import SwiperBox from "../ui/SwiperBox";
+
 function Products() {
-  return <div>محصولات</div>;
+  return <div>
+    <SwiperBox></SwiperBox>
+    <SwiperBox></SwiperBox>
+  </div>;
 }
 
 export default Products;

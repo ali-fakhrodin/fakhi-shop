@@ -2,16 +2,19 @@ import styled from "styled-components";
 
 const StyledFooter = styled.footer`
   width: 98%;
-  height: 10rem;
-
-  display: block;
-
-  background-color: var(--color-dark);
-  border-radius: var(--radius-sm);
 `;
 
 function Footer() {
-  return <StyledFooter className="mx-auto mt-6 mb-3"></StyledFooter>;
+  return (
+    <StyledFooter className="mx-auto mt-6 mb-3 bg-gray-700 z-10 h-60 rounded-xl flex px-8 py-6 justify-between text-gray-200">
+      <div className="w-1/4 text-center">
+        شبکه های مجازی
+      </div>
+      <div className="w-1/4 text-center">
+        لینک ها
+      </div>
+    </StyledFooter>
+  );
 }
 
 export default Footer;

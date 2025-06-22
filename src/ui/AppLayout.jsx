@@ -9,7 +9,7 @@ const Container = styled.div`
 `;
 function AppLayout() {
   return (
-    <div className="flex flex-col justify-between">
+    <div className="flex flex-col justify-between bg-neutral-100">
       <PageNav />
       <Container className="mx-auto">
         <Outlet />

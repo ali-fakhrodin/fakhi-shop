@@ -7,7 +7,7 @@ const StyledTitle = styled.p`
 
 function Title({ children }) {
   return (
-    <StyledTitle className="bg-gray-600 text-gray-300 inline-block mt-5 mb-3 px-7 py-1 rounded-tl-xl rounded-br-md">
+    <StyledTitle className="bg-gray-600 text-gray-300 px-7 py-2 rounded-tl-xl rounded-br-md h-full">
       {children}
     </StyledTitle>
   );
