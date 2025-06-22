@@ -1,17 +1,11 @@
-import styled from "styled-components";
-
-const StyledBtn = styled.button`
-  color: var(--color-white);
-`;
-
 function Button({ text, type }) {
   return (
-    <StyledBtn
+    <button
       type={type}
-      className="border-none rounded-lg px-4 py-[2px] bg-green-800 bg-opacity-80 "
+      className="border-none rounded-lg px-4 py-[2px] bg-slate-200 text-slate-600 text-[15px] font-[yekan_bakh] font-semibold "
     >
       + {text}
-    </StyledBtn>
+    </button>
   );
 }
 

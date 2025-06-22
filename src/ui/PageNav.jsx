@@ -8,7 +8,7 @@ const liClassname =
 function PageNav() {
   return (
     <>
-      <div className="w-[95%] mx-auto bg-slate-600 p-2 py-1 rounded-lg flex justify-between fixed top-4 right-0 left-0 ">
+      <div className="w-[95%] mx-auto bg-slate-600 p-2 py-1 rounded-lg flex justify-between fixed top-4 right-0 left-0 z-10 ">
         <div className="flex items-center">
           <Logo />
           <NavLink to="home" className={liClassname}>
