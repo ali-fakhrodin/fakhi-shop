@@ -25,7 +25,7 @@ function ProductBox({ data }) {
         <StyledDesc>{desc.substring(0, 60)} ...</StyledDesc>
         <div className="w-full flex justify-between items-center">
           <p className="flex items-center h-10">{price}$</p>
-          <Button text="افزودن به سبد" />
+          <Button text="افزودن به سبد +" style="addToBasket" />
         </div>
       </StyledProductInfo>
     </StyledContainer>

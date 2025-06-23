@@ -1,7 +1,4 @@
-import Button from "../../../ui/Button";
-import Input from "../../../ui/Input";
-
-function LoginForm() {
+function SingUpForm() {
   return (
     <div className="flex flex-col gap-2 items-center justify-center h-[100%]">
       <div className="w-full flex flex-col items-center justify-center gap-2">
@@ -22,4 +19,4 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+export default SingUpForm;

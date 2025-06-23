@@ -1,10 +1,10 @@
-function Input() {
-  return (
-    <input className="border-s-stone-700 rounded-lg px-6 py-2 w-1/3 text-sm shadow-md" />
-  );
-}
+import styled from "styled-components";
+
+const Input = styled.input`
+     padding: 10px 10px;
+     width: 50%;
+     border-radius: 8px;
+     box-shadow: 0 0 6px -3px #8c8b8ba8;
+`;
 
 export default Input;
-//   border: 1px solid #ddd;
-//   border-radius: var(--border-radius-sm);
-//   padding: 0.8rem 1.2rem;
