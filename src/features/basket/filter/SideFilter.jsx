@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import FilterBox from "../../../ui/FilterBox";
+import SortBox from "../../../ui/SortBox";
 
 function SideFilter() {
   const [height, setHeight] = useState(document.body.clientHeight - 160);
@@ -16,6 +17,7 @@ function SideFilter() {
       <p className="mb-3 font-[600] text-center">فیلتر / مرتب سازی</p>
       <div className="bg-slate-800 h-full shadow-xl rounded-xl text-white px-4 py-2">
         <FilterBox />
+        <SortBox />
       </div>
     </StyledContainer>
   );
