@@ -10,7 +10,7 @@ function Home() {
   return (
     <StyledContainer className="grid">
       <div>
-        <SideFilter></SideFilter>
+        <SideFilter />
       </div>
       <div>
         <SwiperBox title="بیشترین تخفیف" path="/products"></SwiperBox>

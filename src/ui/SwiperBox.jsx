@@ -54,7 +54,7 @@ function SwiperBox({ title = "Title", path = "path" }) {
 
       <div className="flex gap-4">
         {data.map((data) => (
-          <ProductBox data={data} key={data.src} />
+          <ProductBox data={data} key={data.id} />
         ))}
       </div>
     </>

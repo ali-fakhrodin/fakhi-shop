@@ -1,5 +1,11 @@
+import Input from "../ui/Input";
+
 function Login() {
-  return <div>ورود / ثبت نام</div>;
+  return (
+    <div>
+      <Input />
+    </div>
+  );
 }
 
 export default Login;
