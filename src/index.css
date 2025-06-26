@@ -17,14 +17,17 @@
   src: url("../public/fonts/W_yekanBold.ttf");
 }
 
+#root {
+  height: 100%;
+  position: relative;
+}
+
 :root {
   direction: rtl;
   font-family: yekan;
   line-height: 1.5;
   font-weight: 400;
-  position: relative;
   height: 100%;
-
   --color-dark: #0000003b;
   --color-green: #20844a;
   --color-white: #fbfbfb;
@@ -42,6 +45,13 @@
   margin: 0;
   box-sizing: border-box;
   outline: none;
+}
+
+html {
+  /* height: 100%; */
+  position: relative;
+  top: 0;
+  bottom: 0;
 }
 
 body {

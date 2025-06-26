@@ -22,7 +22,6 @@ function FilterBox({ filterField, options }) {
   const currFilter = searchParams.get(filterField);
 
   function handleClick(value) {
-    console.log(value);
     searchParams.set(filterField, value);
     setSearchParams(searchParams);
   }

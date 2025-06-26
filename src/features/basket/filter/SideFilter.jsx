@@ -12,7 +12,7 @@ function SideFilter() {
   const StyledContainer = styled.div`
     height: ${height}px;
   `;
-  
+
   return (
     <StyledContainer className="mt-4 fixed w-[14%] ">
       <p className="mb-3 font-[600] text-center">فیلتر / مرتب سازی</p>
@@ -20,6 +20,7 @@ function SideFilter() {
         <p className="mb-3">فیلتر بر اساس</p>
         <FilterBox
           options={[
+            { value: "all", label: "بدون فیلتر" },
             { value: "lower-65000", label: "زیر 65000" },
             { value: "higher-65000", label: "بالای 65000" },
           ]}

@@ -9,12 +9,12 @@ const Container = styled.div`
 `;
 function AppLayout() {
   return (
-    <div className="flex flex-col justify-between bg-neutral-100">
+    <div className="flex flex-col justify-between bg-neutral-200 h-full relative overflow-auto">
       <PageNav />
       <Container className="mx-auto">
         <Outlet />
       </Container>
-      <Footer />
+      <Footer className="absolute bottom-0"/>
     </div>
   );
 }
