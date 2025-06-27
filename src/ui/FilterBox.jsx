@@ -19,15 +19,15 @@ const FilterButton = styled.button`
 
 function FilterBox({ filterField, options }) {
   const [searchParams, setSearchParams] = useSearchParams();
-  const currFilter = searchParams.get(filterField);
+  const currFilter = searchParams.get(filterField) || "all";
 
   function handleClick(value) {
     searchParams.set(filterField, value);
     setSearchParams(searchParams);
+    console.log(currFilter === value)
   }
 
   return (
-    // <ul className="flex flex-col gap-3 h-1/2 overflow-auto">
     <div className="flex flex-col gap-y-3">
       {options.map((option) => (
         <FilterButton

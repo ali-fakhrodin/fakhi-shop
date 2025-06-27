@@ -47,12 +47,15 @@ const data = [
   },
 ];
 
+const StyledContainer = styled.div`
+  grid-template-columns: 2fr 10fr;
+`;
+
 function Products() {
   const [searchParams] = useSearchParams();
 
   // 1. Filter
   const filteredBy = searchParams.get("price") || "all";
-  // console.log(filteredBy);
   let filteredData;
 
   if (filteredBy === "all") filteredData = data;
@@ -60,30 +63,17 @@ function Products() {
     filteredData = [...data].filter((item) => item.price >= 65000);
   if (filteredBy === "lower-65000")
     filteredData = [...data].filter((item) => item.price <= 65000);
-  console.log(filteredData)
-  // console.log(filteredData);
 
   // 2. Sort
-  const sortBy = searchParams.get("sortBy");
-
-  let sortedData;
+  const sortBy = searchParams.get("sortBy") || "none";
+  const [field, direction] = sortBy.split("-");
+  const modifire = direction === "asc" ? 1 : -1;
 
   if (!sortBy) sortedData = filteredData;
 
-  if (sortBy === "none") sortedData = filteredData;
-  if (sortBy === "price-desc")
-    sortedData = [...filteredData].sort((a, b) => a.price - b.price);
-  if (sortBy === "price-asc")
-    sortedData = [...filteredData].sort((a, b) => b.price - a.price);
-
-  if (sortBy === "score-desc")
-    sortedData = [...filteredData].sort((a, b) => a.score - b.score);
-  if (sortBy === "score-asc")
-    sortedData = [...filteredData].sort((a, b) => b.score - a.score);
-
-  const StyledContainer = styled.div`
-    grid-template-columns: 2fr 10fr;
-  `;
+  const sortedData = [...filteredData].sort(
+    (a, b) => (b[field] - a[field]) * modifire
+  );
 
   return (
     <StyledContainer className="grid">
