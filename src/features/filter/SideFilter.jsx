@@ -1,13 +1,7 @@
-import FilterBox from "../../../ui/FilterBox";
-import SortBox from "../../../ui/SortBox";
+import FilterBox from "../../ui/FilterBox";
+import SortBox from "../../ui/SortBox";
 
 function SideFilter() {
-  // const [height, setHeight] = useState(document.body.clientHeight - 160);
-  // document.addEventListener("scroll", () => {
-  //   setHeight(document.body.clientHeight - 160);
-  //   // console.log(height)
-  // });
-
   return (
     <div className="mt-6 fixed w-[14%]">
       <p className="mb-2 font-[600] text-sm text-center">فیلتر / مرتب سازی</p>

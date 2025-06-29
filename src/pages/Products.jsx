@@ -1,6 +1,6 @@
 // import SwiperBox from "../ui/SwiperBox";
 import styled from "styled-components";
-import SideFilter from "../features/basket/filter/SideFilter";
+import SideFilter from "../features/filter/SideFilter";
 import ProductBox from "../ui/ProductBox";
 import { useSearchParams } from "react-router-dom";
 
@@ -68,12 +68,12 @@ function Products() {
   const sortBy = searchParams.get("sortBy") || "none";
   const [field, direction] = sortBy.split("-");
   const modifire = direction === "asc" ? 1 : -1;
-
-  if (!sortBy) sortedData = filteredData;
-
-  const sortedData = [...filteredData].sort(
+  
+  const sortedData = [...filteredData]?.sort(
     (a, b) => (b[field] - a[field]) * modifire
   );
+  
+
 
   return (
     <StyledContainer className="grid">

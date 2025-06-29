@@ -1,5 +1,5 @@
-import Button from "../../../ui/Button";
-import Input from "../../../ui/Input";
+import Button from "../../ui/Button";
+import Input from "../../ui/Input";
 
 function LoginForm() {
   return (
