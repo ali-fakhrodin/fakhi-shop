@@ -1,6 +1,5 @@
 import { BiBasket, BiCar, BiHome, BiUser } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
-import Logo from "./Logo";
 
 const liClassname =
   "flex items-center bg-slate-600 text-slate-200 px-5 py-4 rounded-lg hover:bg-slate-700 flex items-center gap-2";
@@ -8,9 +7,8 @@ const liClassname =
 function PageNav() {
   return (
     <>
-      <div className="w-[95%] mx-auto bg-slate-600 p-2 py-1 rounded-lg flex justify-between fixed top-4 right-0 left-0 z-10 ">
+      <div className="w-[95%] mx-auto bg-slate-600 px-4 py-1 rounded-xl flex justify-between fixed top-4 right-0 left-0 z-10 ">
         <div className="flex items-center">
-          <Logo />
           <NavLink to="home" className={liClassname}>
             <BiHome className="block" /> <span>خانه</span>
           </NavLink>

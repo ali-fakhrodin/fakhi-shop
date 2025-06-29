@@ -2,6 +2,8 @@ import { BiArrowFromRight } from "react-icons/bi";
 import ProductBox from "../ui/ProductBox";
 import Title from "./Title";
 import { NavLink } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Keyboard } from "swiper/modules";
 
 const data = [
   {
@@ -46,16 +48,36 @@ function SwiperBox({ title = "Title", path = "path" }) {
     <>
       <div className="flex idtems-center justify-between mt-6 mb-3">
         <Title>{title}</Title>
-        <NavLink to={path} className="flex items-center gap-1 pl-1 text-emerald-900 font-semibold">
+        <NavLink
+          to={path}
+          className="flex items-center gap-1 pl-1 text-emerald-900 font-semibold"
+        >
           مشاهده همه
           <BiArrowFromRight />
         </NavLink>
       </div>
 
       <div className="flex gap-4">
-        {data.map((data) => (
-          <ProductBox data={data} key={data.id} />
-        ))}
+        <Swiper
+          modules={[Pagination, Keyboard]}
+          // autoplay={{ delay: 4000 }}
+          keyboard={{ enabled: true }}
+          pagination={{ clickable: true }}
+          spaceBetween={30}
+          slidesPerView={6}
+          onSlideChange={() => console.log("slide change")}
+          onSwiper={(swiper) => console.log(swiper)}
+        >
+          {data.map((item) => (
+            <SwiperSlide key={item.id}>
+              <ProductBox data={item}>
+                <div className=" flex w-full items-center justify-center h-full overflow-hidden">
+                  <img className=" block object-cover" src={item.src} />
+                </div>
+              </ProductBox>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </>
   );

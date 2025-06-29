@@ -11,10 +11,10 @@ function AppLayout() {
   console.log(location.pathname)
 
   return (
-    <div className="flex flex-col justify-between bg-neutral-200 h-full relative overflow-auto">
+    <div className="flex flex-col justify-between  h-full relative overflow-auto bg-neutral-200  ">
       <PageNav />
       <Container
-        className={`mx-auto ${location.pathname === "/home" || "/" && "w-full"}`}
+        className={`mx-auto ${location.pathname === "/home" ? "w-full" : "/" ? "w-full" : ""}`}
       >
         <Outlet />
       </Container>

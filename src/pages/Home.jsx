@@ -19,7 +19,7 @@ const images = [
 function Home() {
   return (
     <>
-      <div className=" h-[70vh] flex items-center justify-center shadow-lg my-4 relative">
+      <div className="h-[60vh] flex items-center justify-center mt-2 relative overflow-hidden">
         <Swiper
           modules={[Pagination, Autoplay, Keyboard]}
           autoplay={{ delay: 4000 }}
@@ -32,25 +32,24 @@ function Home() {
         >
           {images.map((img) => (
             <SwiperSlide key={img}>
-              <div className=" flex w-full items-center justify-center h-full overflow-hidden rounded-3xl">
-                <img className=" block object-cover" src={img} />
+              <div className=" flex w-full items-center justify-center h-full overflow-hidden">
+                <img
+                  className="block object-cover blur-[2px] brightness-75"
+                  src={img}
+                />
               </div>
             </SwiperSlide>
           ))}
-          <div className="absolute flex gap-2 text-lg text-gray-200 left-3 bottom-3 z-10">
-            <button className="bg-emerald-900 hover:bg-emerald-600 px-4 py-1 rounded-lg">
-              مشاهده محصولات
-            </button>
-            <button className="bg-emerald-900 hover:bg-emerald-600 px-4 py-1 rounded-lg">
-              سبد خرید
-            </button>
+          <div className="absolute text-gray-200 bottom-1/4 left-0 right-0 mx-auto w-max z-10 ">
+            <p className="px-4 py-1 text-[9rem] rounded-lg drop-shadow-xl alfa-slab-one-regular">
+              FAKHI SHOP
+            </p>
           </div>
         </Swiper>
       </div>
       <div className="container">
         <div>
           <SwiperBox title="بیشترین تخفیف" path="/products"></SwiperBox>
-          <SwiperBox title="کالای مورد علاقه" path="/products"></SwiperBox>
           {/* <SwiperBox title="خریدی به صرفه" path="/products"></SwiperBox> */}
         </div>
         <div className="mt-8 p-6 flex justify-between bg-slate-400 gap-4 rounded-xl">
