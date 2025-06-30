@@ -2,9 +2,9 @@
 import styled from "styled-components";
 import SideFilter from "../features/filter/SideFilter";
 import ProductBox from "../ui/ProductBox";
+import Loading from "../ui/Loading";
 import { useSearchParams } from "react-router-dom";
 import { useCars } from "../features/cars/useCars";
-import Loading from "../ui/Loading";
 
 const StyledContainer = styled.div`
   grid-template-columns: 2fr 10fr;

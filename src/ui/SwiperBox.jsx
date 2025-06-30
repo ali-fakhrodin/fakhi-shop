@@ -4,53 +4,13 @@ import Title from "./Title";
 import { NavLink } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Keyboard } from "swiper/modules";
-
-const data = [
-  {
-    id: 1,
-    name: "پورشه باکستر",
-    price: 65000,
-    src: "public/cars/01.jpg",
-    desc: "ماشین کم کارکرد. تولید سال 2023 و بدون رنگ. از اول دست خودم بوده . برای بازدید رشت تشریف بیارید",
-  },
-  {
-    id: 2,
-    name: "پورشه باکستر",
-    price: 65000,
-    src: "public/cars/02.jpg",
-    desc: "ماشین کم کارکرد. تولید سال 2023 و بدون رنگ. از اول دست خودم بوده . برای بازدید رشت تشریف بیارید",
-  },
-  {
-    id: 3,
-    name: "پورشه باکستر",
-    price: 65000,
-    src: "public/cars/03.jpg",
-    desc: "ماشین کم کارکرد. تولید سال 2023 و بدون رنگ. از اول دست خودم بوده . برای بازدید رشت تشریف بیارید",
-  },
-  {
-    id: 4,
-    name: "پورشه باکستر",
-    price: 65000,
-    src: "public/cars/04.jpg",
-    desc: "ماشین کم کارکرد. تولید سال 2023 و بدون رنگ. از اول دست خودم بوده . برای بازدید رشت تشریف بیارید",
-  },
-  {
-    id: 5,
-    name: "پورشه باکستر",
-    price: 65000,
-    src: "public/cars/04.jpg",
-    desc: "ماشین کم کارکرد. تولید سال 2023 و بدون رنگ. از اول دست خودم بوده . برای بازدید رشت تشریف بیارید",
-  },
-  {
-    id: 6,
-    name: "پورشه باکستر",
-    price: 75000,
-    src: "public/cars/04.jpg",
-    desc: "ماشین کم کارکرد. تولید سال 2023 و بدون رنگ. از اول دست خودم بوده . برای بازدید رشت تشریف بیارید",
-  },
-];
+import { useCars } from "../features/cars/useCars";
+import Loading from "./Loading";
 
 function SwiperBox({ title = "Title", path = "path" }) {
+  const { isLoading, cars } = useCars();
+  // console.log(cars);
+  if (isLoading) return <Loading />;
   return (
     <>
       <div className="flex idtems-center justify-between mt-6 mb-3">
@@ -74,20 +34,20 @@ function SwiperBox({ title = "Title", path = "path" }) {
           slidesPerView={6}
           breakpoints={{
             120: {
-              slidesPerView: 1,
+              slidesPerView: 1.3,
             },
             460: {
-              slidesPerView: 2,
+              slidesPerView: 2.2,
               spaceBetween: 10,
             },
             780: {
-              slidesPerView: 3,
+              slidesPerView: 3.3,
             },
             1030: {
-              slidesPerView: 4,
+              slidesPerView: 4.4,
             },
             1300: {
-              slidesPerView: 5,
+              slidesPerView: 5.4,
               spaceBetween: 10,
             },
             1550: {
@@ -95,7 +55,7 @@ function SwiperBox({ title = "Title", path = "path" }) {
             },
           }}
         >
-          {data.map((item) => (
+          {cars.map((item) => (
             <SwiperSlide key={item.id}>
               <ProductBox data={item} />
             </SwiperSlide>

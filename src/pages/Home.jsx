@@ -50,7 +50,7 @@ function Home() {
       </div>
       <div className="container">
         <SwiperBox title="بیشترین تخفیف" path="/products"></SwiperBox>
-        <div className="mt-8 p-8 flex justify-between bg-[#586b75] shadow-xl gap-4 rounded-xl ">
+        <div className="mt-8 p-8 flex justify-between bg-[#44576D] shadow-xl gap-4 rounded-xl ">
           <div className="w-1/2 p-2 text-xl flex flex-col gap-2 ">
             <h3 className="text-xl mb-4 text-stone-300 text-center bg-neutral-800 rounded-t-xl px-8 py-1.5">
               کار هایی که ما انجام میدیم
@@ -58,16 +58,16 @@ function Home() {
             <p className="pr-2 pl-4 py-1 bg-stone-200 w-max rounded-tl-xl rounded-r-lg flex items-center ">
               <TiTickOutline /> &nbsp; خرید و فروش ماشین صفر، مستقیم از نمایندگی
             </p>
+            <p className="pr-2 pl-4 py-1 bg-stone-200 w-max rounded-tl-xl rounded-r-lg flex items-center gap-2 ">
+              <BiConversation />
+              مشاوره رایگان شبانه روزی + راهنمایی برای خرید بصرفه
+            </p>
             <p className="pr-2 pl-4 py-1 bg-stone-200 w-max rounded-tl-xl rounded-r-lg flex items-center ">
               <TiTickOutline /> &nbsp; خرید و فروش ماشین کارکرده
             </p>
             <p className="pr-2 pl-4 py-1 bg-stone-200 w-max rounded-tl-xl rounded-r-lg flex items-center ">
               <TiTickOutline /> &nbsp; خرید و فروش ماشین کارکرده به همراه برگه
               معاینه فنی
-            </p>
-            <p className="pr-2 pl-4 py-1 bg-stone-200 w-max rounded-tl-xl rounded-r-lg flex items-center gap-2 ">
-              <BiConversation />
-              مشاوره رایگان شبانه روزی + راهنمایی برای خرید بصرفه
             </p>
           </div>
           <div className="w-1/2 p-2 ">
@@ -118,7 +118,7 @@ function Home() {
           </div>
         </div>
         <SwiperBox title="خریدی به صرفه" path="/products"></SwiperBox>
-        <div className="mt-8 p-6 flex justify-between bg-[#393a7c] shadow-xl gap-4 rounded-xl ">
+        <div className="mt-8 p-6 flex justify-between bg-[#44576D] shadow-xl gap-4 rounded-xl ">
           <div className="w-full ">
             <p className="text-xl mb-2 text-center bg-neutral-200 rounded-t-xl px-8 py-1.5 ">
               چرا فخی شاپ؟
