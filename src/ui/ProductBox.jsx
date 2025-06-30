@@ -18,9 +18,9 @@ const StyledDesc = styled.div`
 function ProductBox({ data }) {
   const { name, price, src, desc } = data;
   return (
-    <StyledContainer className="overflow-hidden rounded-xl max-w-56 bg-slate-600 text-gray-200 shadow-md hover:scale-[1.03] transition-all cursor-pointer">
-      <StyledImg src={src} className="block object-cover" />
-      <StyledProductInfo className="flex justify-between items-center flex-col p-1 text-center mx-auto w-[90%] h-[39%]">
+    <StyledContainer className="overflow-hidden rounded-xl w-full sm:w-56 xl:w-56 bg-slate-600 text-gray-200 shadow-md cursor-pointer">
+      <StyledImg src={src} className="block object-cover w-full" />
+      <StyledProductInfo className="flex justify-between items-center flex-col p-1 text-center mx-auto w-[90%] h-[38%]">
         <h3 className="font-[yekan-b] text-lg">{name}</h3>
         <StyledDesc>{desc.substring(0, 60)} ...</StyledDesc>
         <div className="w-full flex justify-between items-center">

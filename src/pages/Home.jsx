@@ -1,13 +1,15 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay, Keyboard } from "swiper/modules";
+import { Pagination, Autoplay, Keyboard, EffectCube } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css";
 // import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/keyboard";
+import "swiper/css/effect-cube";
 
 import SwiperBox from "../ui/SwiperBox";
 import { BiConversation } from "react-icons/bi";
+import { TiTickOutline } from "react-icons/ti";
 
 const images = [
   "public/home-swiper/img_1.jpg",
@@ -23,12 +25,11 @@ function Home() {
         <Swiper
           modules={[Pagination, Autoplay, Keyboard]}
           autoplay={{ delay: 4000 }}
+          speed={2000}
           keyboard={{ enabled: true }}
           pagination={{ clickable: true }}
           spaceBetween={50}
           slidesPerView={1}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
         >
           {images.map((img) => (
             <SwiperSlide key={img}>
@@ -48,25 +49,75 @@ function Home() {
         </Swiper>
       </div>
       <div className="container">
-        <div>
-          <SwiperBox title="بیشترین تخفیف" path="/products"></SwiperBox>
-          {/* <SwiperBox title="خریدی به صرفه" path="/products"></SwiperBox> */}
-        </div>
-        <div className="mt-8 p-6 flex justify-between bg-slate-400 gap-4 rounded-xl">
-          <div className="w-1/2 p-2">
-            <h3 className="text-xl">کار هایی که ما انجام میدیم</h3>
-            <p>خرید و فروش ماشین صفر</p>
-            <p>خرید و فروش ماشین کارکرده</p>
-            <p>خرید و فروش ماشین کارکرده</p>
-            <p className="flex items-center gap-2">
+        <SwiperBox title="بیشترین تخفیف" path="/products"></SwiperBox>
+        <div className="mt-8 p-8 flex justify-between bg-[#586b75] shadow-xl gap-4 rounded-xl ">
+          <div className="w-1/2 p-2 text-xl flex flex-col gap-2 ">
+            <h3 className="text-xl mb-4 text-stone-300 text-center bg-neutral-800 rounded-t-xl px-8 py-1.5">
+              کار هایی که ما انجام میدیم
+            </h3>
+            <p className="pr-2 pl-4 py-1 bg-stone-200 w-max rounded-tl-xl rounded-r-lg flex items-center ">
+              <TiTickOutline /> &nbsp; خرید و فروش ماشین صفر، مستقیم از نمایندگی
+            </p>
+            <p className="pr-2 pl-4 py-1 bg-stone-200 w-max rounded-tl-xl rounded-r-lg flex items-center ">
+              <TiTickOutline /> &nbsp; خرید و فروش ماشین کارکرده
+            </p>
+            <p className="pr-2 pl-4 py-1 bg-stone-200 w-max rounded-tl-xl rounded-r-lg flex items-center ">
+              <TiTickOutline /> &nbsp; خرید و فروش ماشین کارکرده به همراه برگه
+              معاینه فنی
+            </p>
+            <p className="pr-2 pl-4 py-1 bg-stone-200 w-max rounded-tl-xl rounded-r-lg flex items-center gap-2 ">
               <BiConversation />
-              مشاوره رایگان
+              مشاوره رایگان شبانه روزی + راهنمایی برای خرید بصرفه
             </p>
           </div>
           <div className="w-1/2 p-2 ">
-            <p>شرکت ما</p>
+            <p className="text-xl mb-2 text-center bg-neutral-200 rounded-t-xl px-8 py-1.5 ">
+              ماشین های شرکت ما
+            </p>
+            <Swiper
+              effect={"cube"}
+              grabCursor={true}
+              cubeEffect={{
+                shadow: true,
+                slideShadows: true,
+                shadowOffset: 10,
+                shadowScale: 0.94,
+              }}
+              pagination={true}
+              modules={[EffectCube, Pagination, Keyboard, Autoplay]}
+              keyboard={true}
+              speed={2000}
+              autoplay={{ delay: 2000 }}
+              className="mySwiper"
+            >
+              <SwiperSlide>
+                <img
+                  src="public/home-swiper/img_1.jpg"
+                  className="h-[200px] w-full overflow-hidden object-cover rounded-xl"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img
+                  src="public/home-swiper/img_3.jpg"
+                  className="h-[200px] w-full overflow-hidden object-cover rounded-xl"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img
+                  src="public/home-swiper/img_4.jpg"
+                  className="h-[200px] w-full overflow-hidden object-cover rounded-xl"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img
+                  src="public/home-swiper/img_5.jpg"
+                  className="h-[200px] w-full overflow-hidden object-cover rounded-xl"
+                />
+              </SwiperSlide>
+            </Swiper>
           </div>
         </div>
+        <SwiperBox title="خریدی به صرفه" path="/products"></SwiperBox>
       </div>
     </>
   );

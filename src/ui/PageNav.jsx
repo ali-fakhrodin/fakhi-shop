@@ -1,5 +1,6 @@
 import { BiBasket, BiCar, BiHome, BiUser } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
+import SearchBox from "./SearchBox";
 
 const liClassname =
   "flex items-center bg-slate-600 text-slate-200 px-5 py-4 rounded-lg hover:bg-slate-700 flex items-center gap-2";
@@ -23,8 +24,13 @@ function PageNav() {
           </NavLink>
         </div>
 
-        <div className={liClassname}>
-          <NavLink to="login">ورود / ثبت نام</NavLink>
+        <div className="flex items-center">
+          <div className="ml-4">
+            <SearchBox />
+          </div>
+          <div className={liClassname}>
+            <NavLink to="login">ورود / ثبت نام</NavLink>
+          </div>
         </div>
       </div>
     </>

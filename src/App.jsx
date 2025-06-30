@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import AppLayout from "./ui/AppLayout.jsx";
 import Home from "./pages/Home";
 import Basket from "./pages/Basket.jsx";
@@ -11,8 +11,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="" element={<AppLayout />}>
+          <Route index element={<Navigate replace to="home" />} />
           <Route path="login" element={<Login />} />
-          <Route path="" element={<Home />} />
           <Route path="home" element={<Home />} />
           <Route path="basket" element={<Basket />} />
           <Route path="products" element={<Products />} />
