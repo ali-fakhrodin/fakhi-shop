@@ -118,6 +118,43 @@ function Home() {
           </div>
         </div>
         <SwiperBox title="خریدی به صرفه" path="/products"></SwiperBox>
+        <div className="mt-8 p-6 flex justify-between bg-[#393a7c] shadow-xl gap-4 rounded-xl ">
+          <div className="w-full ">
+            <p className="text-xl mb-2 text-center bg-neutral-200 rounded-t-xl px-8 py-1.5 ">
+              چرا فخی شاپ؟
+            </p>
+            <div className="flex gap-12 px-8">
+              <ul className="w-1/2">
+                <li className="bg-slate-200 p-2 text-center mx-auto text-lg mb-2">
+                  - بهترین خدمات در سطح کشور -
+                </li>
+                <li className="bg-slate-200 p-2 text-center mx-auto text-lg mb-2">
+                  - خریدی ایمن و بصرفه -
+                </li>
+                <li className="bg-slate-200 p-2 text-center mx-auto text-lg mb-2">
+                  - امکان پرداخت با ارز دیجیتال -
+                </li>
+                <li className="bg-slate-200 p-2 text-center mx-auto text-lg mb-2">
+                  - مشاوره رایگان -
+                </li>
+              </ul>
+              <ul className="w-1/2">
+                <li className="bg-slate-200 p-2 text-center mx-auto text-lg mb-2">
+                  - بهترین خدمات در سطح کشور -
+                </li>
+                <li className="bg-slate-200 p-2 text-center mx-auto text-lg mb-2">
+                  - خریدی ایمن و بصرفه -
+                </li>
+                <li className="bg-slate-200 p-2 text-center mx-auto text-lg mb-2">
+                  - امکان پرداخت با ارز دیجیتال -
+                </li>
+                <li className="bg-slate-200 p-2 text-center mx-auto text-lg mb-2">
+                  - مشاوره رایگان -
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

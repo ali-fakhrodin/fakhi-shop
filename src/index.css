@@ -117,3 +117,20 @@ li {
 .swiper-pagination-bullet-active {
   background-color: #1511fd !important;
 }
+
+.loading {
+  animation: loading 500ms ease infinite forwards alternate;
+  font-size: 1.2rem;
+}
+
+@keyframes loading {
+  0% {
+    color: darkblue;
+    letter-spacing: 5px;
+  }
+
+  100% {
+    font-size: 1.5rem;
+    color: darkmagenta;
+  }
+}

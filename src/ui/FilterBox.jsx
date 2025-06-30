@@ -24,7 +24,6 @@ function FilterBox({ filterField, options }) {
   function handleClick(value) {
     searchParams.set(filterField, value);
     setSearchParams(searchParams);
-    console.log(currFilter === value)
   }
 
   return (

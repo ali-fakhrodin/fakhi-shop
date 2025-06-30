@@ -3,77 +3,37 @@ import styled from "styled-components";
 import SideFilter from "../features/filter/SideFilter";
 import ProductBox from "../ui/ProductBox";
 import { useSearchParams } from "react-router-dom";
-
-const data = [
-  {
-    id: 1,
-    name: "پورشه 911",
-    price: 120000,
-    src: "public/cars/01.jpg",
-    score: 4.9,
-    desc: "ماشین کم کارکرد. تولید سال 2023 و بدون رنگ. از اول دست خودم بوده . برای بازدید رشت تشریف بیارید",
-  },
-  {
-    id: 2,
-    name: "پورشه باکستر",
-    price: 63000,
-    src: "public/cars/02.jpg",
-    score: 4.7,
-    desc: "ماشین کم کارکرد. تولید سال 2023 و بدون رنگ. از اول دست خودم بوده . برای بازدید رشت تشریف بیارید",
-  },
-  {
-    id: 3,
-    name: "شورولت کامارو",
-    price: 73000,
-    src: "public/cars/03.jpg",
-    score: 4.6,
-    desc: "ماشین کم کارکرد. تولید سال 2023 و بدون رنگ. از اول دست خودم بوده . برای بازدید رشت تشریف بیارید",
-  },
-  {
-    id: 4,
-    name: "پورشه باکستر",
-    price: 65000,
-    src: "public/cars/04.jpg",
-    score: 4.4,
-    desc: "ماشین کم کارکرد. تولید سال 2023 و بدون رنگ. از اول دست خودم بوده . برای بازدید رشت تشریف بیارید",
-  },
-  {
-    id: 5,
-    name: "پورشه باکستر",
-    price: 50000,
-    src: "public/cars/04.jpg",
-    score: 4.8,
-    desc: "ماشین کم کارکرد. تولید سال 2023 و بدون رنگ. از اول دست خودم بوده . برای بازدید رشت تشریف بیارید",
-  },
-];
+import { useCars } from "../features/cars/useCars";
+import Loading from "../ui/Loading";
 
 const StyledContainer = styled.div`
   grid-template-columns: 2fr 10fr;
 `;
 
 function Products() {
+  const { isLoading, cars } = useCars();
   const [searchParams] = useSearchParams();
 
   // 1. Filter
   const filteredBy = searchParams.get("price") || "all";
   let filteredData;
 
-  if (filteredBy === "all") filteredData = data;
+  if (isLoading) return <Loading />;
+
+  if (filteredBy === "all") filteredData = cars;
   if (filteredBy === "higher-65000")
-    filteredData = [...data].filter((item) => item.price >= 65000);
+    filteredData = [...cars].filter((item) => item.price >= 65000);
   if (filteredBy === "lower-65000")
-    filteredData = [...data].filter((item) => item.price <= 65000);
+    filteredData = [...cars].filter((item) => item.price <= 65000);
 
   // 2. Sort
   const sortBy = searchParams.get("sortBy") || "none";
   const [field, direction] = sortBy.split("-");
   const modifire = direction === "asc" ? 1 : -1;
-  
+
   const sortedData = [...filteredData]?.sort(
     (a, b) => (b[field] - a[field]) * modifire
   );
-  
-
 
   return (
     <StyledContainer className="grid">
