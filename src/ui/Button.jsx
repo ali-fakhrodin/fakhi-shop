@@ -5,8 +5,8 @@ function Button({ text = "text", type = "button", style = "primary" }) {
       ? "bg-slate-200 text-slate-600 font-semibold"
       : style === "primary"
       ? "bg-green-600 text-white w-[50%] hover:bg-slate-600 h-10"
-      : style === "secondary"
-      ? ""
+      : style === "delete"
+      ? "bg-red"
       : "";
 
   return (
