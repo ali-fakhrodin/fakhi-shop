@@ -10,8 +10,7 @@ const StyledImg = styled.img`
 const StyledProductInfo = styled.div``;
 
 function BasketItem({ item }) {
-  const { name, price, src } = item;
-  console.log(item);
+  const { name, price, src, count } = item;
 
   return (
     <StyledContainer className="overflow-hidden rounded-xl w-full sm:w-56 xl:w-52 bg-slate-600 text-gray-200 shadow-md cursor-pointer">
@@ -28,7 +27,7 @@ function BasketItem({ item }) {
               <button className="bg-gray-900 hover:bg-gray-700 px-3 text-red-600 rounded-lg text-[19px]">
                 -
               </button>
-              <p>1</p>
+              <p>{count}</p>
               <button className="bg-gray-900 hover:bg-gray-700 px-3 text-green-600 rounded-lg text-[19px]">
                 +
               </button>

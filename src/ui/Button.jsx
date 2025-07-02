@@ -1,4 +1,9 @@
-function Button({ text = "text", type = "button", style = "primary" }) {
+function Button({
+  text = "text",
+  type = "button",
+  style = "primary",
+  onClick = "",
+}) {
   const mainClassName = "border-none rounded-lg px-4 py-[2px] text-[15px]";
   const className =
     style === "addToBasket"
@@ -10,7 +15,11 @@ function Button({ text = "text", type = "button", style = "primary" }) {
       : "";
 
   return (
-    <button type={type} className={mainClassName + " " + className}>
+    <button
+      type={type}
+      className={mainClassName + " " + className}
+      onClick={onClick}
+    >
       {text}
     </button>
   );
