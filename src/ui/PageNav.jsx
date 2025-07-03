@@ -1,35 +1,54 @@
 import { BiBasket, BiCar, BiHome, BiUser } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
 import SearchBox from "./SearchBox";
+import { useState } from "react";
 
 const liClassname =
-  "flex items-center bg-slate-600 text-slate-200 px-5 py-4 rounded-lg hover:bg-slate-700 flex items-center gap-2";
+  "flex items-center bg-slate-600 text-slate-200 md:px-5 px-3 py-4 rounded-lg hover:bg-slate-700 flex items-center gap-2";
 
 function PageNav() {
+  const [isOpenNavabar, setIsOpenNavabar] = useState(false);
+
   return (
     <>
-      <div className="w-[95%] mx-auto bg-slate-600 px-4 py-1 rounded-xl flex justify-between fixed top-4 right-0 left-0 z-10 ">
-        <div className="flex items-center">
-          <NavLink to="home" className={liClassname}>
-            <BiHome className="block" /> <span>خانه</span>
-          </NavLink>
-          <NavLink to="basket" className={liClassname}>
-            <BiBasket /> <span>سبد خرید</span>
-          </NavLink>
-          <NavLink to="products" className={liClassname}>
-            <BiCar /> <span>محصولات</span>
-          </NavLink>
-          <NavLink to="profile" className={liClassname}>
-            <BiUser /> <span>پروفایل</span>
-          </NavLink>
-        </div>
-
-        <div className="flex items-center">
-          <div className="ml-4">
-            <SearchBox />
+      <div
+        className={`w-[95%] mx-auto bg-slate-600 px-0 lg:px-2 py-1 rounded-xl flex justify-between flex-csol md:flex-row fixed top-4 right-0 left-0 z-10 ${
+          isOpenNavabar && "flex-row"
+        }`}
+      >
+        <button
+          className={`visible md:hidden text-white p-2 text-2xl`}
+          onClick={() => setIsOpenNavabar((isOpen) => !isOpen)}
+        >
+          {isOpenNavabar ? "*" : "+"}
+        </button>
+        <div className="flex flex-col md:flex-row justify-between w-full">
+          <div className={`flex flex-col md:flex-row items-center ${isOpenNavabar ? "flex" : "hidden"} md:flex`}>
+            <NavLink to="home" className={liClassname}>
+              <BiHome className="block" /> <span>خانه</span>
+            </NavLink>
+            <NavLink to="basket" className={liClassname}>
+              <BiBasket /> <span>سبد خرید</span>
+            </NavLink>
+            <NavLink to="products" className={liClassname}>
+              <BiCar /> <span>محصولات</span>
+            </NavLink>
+            <NavLink to="profile" className={liClassname}>
+              <BiUser /> <span>پروفایل</span>
+            </NavLink>
           </div>
-          <div className={liClassname}>
-            <NavLink to="login">ورود / ثبت نام</NavLink>
+
+          <div
+            className={`flex md:flex-row items-center justify-center ${
+              isOpenNavabar && "flex-col"
+            }`}
+          >
+            <div className="ml-4">
+              <SearchBox />
+            </div>
+            <div className={liClassname}>
+              <NavLink to="login">ورود / ثبت نام</NavLink>
+            </div>
           </div>
         </div>
       </div>

@@ -21,7 +21,7 @@ const images = [
 function Home() {
   return (
     <>
-      <div className="h-[60vh] flex items-center justify-center mt-2 relative overflow-hidden">
+      <div className="h-[70vh] md:h-[60vh] flex items-center justify-center mt-2 relative overflow-hidden">
         <Swiper
           modules={[Pagination, Autoplay, Keyboard]}
           autoplay={{ delay: 4000 }}
@@ -35,14 +35,14 @@ function Home() {
             <SwiperSlide key={img}>
               <div className=" flex w-full items-center justify-center h-full overflow-hidden">
                 <img
-                  className="block object-cover blur-[2px] brightness-75"
+                  className="block object-cover blur-[2px] brightness-75 h-full md:h-auto"
                   src={img}
                 />
               </div>
             </SwiperSlide>
           ))}
           <div className="absolute text-gray-200 bottom-1/4 left-0 right-0 mx-auto w-max z-10 ">
-            <p className="px-4 py-1 text-[9rem] rounded-lg drop-shadow-xl alfa-slab-one-regular">
+            <p className="px-4 py-1 text-[2.5rem] sm:text-[5rem] xl:text-[9rem] rounded-lg drop-shadow-xl alfa-slab-one-regular">
               FAKHI SHOP
             </p>
           </div>
