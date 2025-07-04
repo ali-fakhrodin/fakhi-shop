@@ -2,6 +2,8 @@ import { BiBasket, BiCar, BiHome, BiUser } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
 import SearchBox from "./SearchBox";
 import { useState } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { CgClose } from "react-icons/cg";
 
 const liClassname =
   "flex items-center bg-slate-600 text-slate-200 md:px-5 px-3 py-4 rounded-lg hover:bg-slate-700 flex items-center gap-2";
@@ -20,7 +22,7 @@ function PageNav() {
           className={`visible md:hidden text-white p-2 text-2xl`}
           onClick={() => setIsOpenNavabar((isOpen) => !isOpen)}
         >
-          {isOpenNavabar ? "*" : "+"}
+          {isOpenNavabar ? <CgClose className="absolute top-4 right-3"/> : <GiHamburgerMenu/>}
         </button>
         <div className="flex flex-col md:flex-row justify-between w-full">
           <div className={`flex flex-col md:flex-row items-center ${isOpenNavabar ? "flex" : "hidden"} md:flex`}>

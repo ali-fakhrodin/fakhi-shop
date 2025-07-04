@@ -50,8 +50,8 @@ function Home() {
       </div>
       <div className="container">
         <SwiperBox title="بیشترین تخفیف" path="/products"></SwiperBox>
-        <div className="mt-8 p-8 flex justify-between bg-[#44576D] shadow-xl gap-4 rounded-xl ">
-          <div className="w-1/2 p-2 text-xl flex flex-col gap-2 ">
+        <div className="mt-8 p-2 md:p-8 flex flex-col lg:flex-row justify-between bg-[#44576D] shadow-xl gap-4 rounded-xl ">
+          <div className="w-full lg:w-1/2 p-2 text-sm md:text-xl flex flex-col text-wrap gap-2">
             <h3 className="text-xl mb-4 text-stone-300 text-center bg-neutral-800 rounded-t-xl px-8 py-1.5">
               کار هایی که ما انجام میدیم
             </h3>
@@ -70,7 +70,7 @@ function Home() {
               معاینه فنی
             </p>
           </div>
-          <div className="w-1/2 p-2 ">
+          <div className="w-full lg:w-1/2 p-2 ">
             <p className="text-xl mb-2 text-center bg-neutral-200 rounded-t-xl px-8 py-1.5 ">
               ماشین های شرکت ما
             </p>
@@ -119,12 +119,12 @@ function Home() {
         </div>
         <SwiperBox title="خریدی به صرفه" path="/products"></SwiperBox>
         <div className="mt-8 p-6 flex justify-between bg-[#44576D] shadow-xl gap-4 rounded-xl ">
-          <div className="w-full ">
+          <div className="w-full">
             <p className="text-xl mb-2 text-center bg-neutral-200 rounded-t-xl px-8 py-1.5 ">
               چرا فخی شاپ؟
             </p>
-            <div className="flex gap-12 px-8">
-              <ul className="w-1/2">
+            <div className="flex gap-4 lg:gap-12 px-0 md:px-8">
+              <ul className="w-full md:w-1/2">
                 <li className="bg-slate-200 p-2 text-center mx-auto text-lg mb-2">
                   - بهترین خدمات در سطح کشور -
                 </li>
@@ -138,7 +138,7 @@ function Home() {
                   - مشاوره رایگان -
                 </li>
               </ul>
-              <ul className="w-1/2">
+              <ul className="w-full md:w-1/2">
                 <li className="bg-slate-200 p-2 text-center mx-auto text-lg mb-2">
                   - بهترین خدمات در سطح کشور -
                 </li>
