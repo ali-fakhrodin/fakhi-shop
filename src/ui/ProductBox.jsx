@@ -4,9 +4,16 @@ import supabase from "../services/supabase";
 
 const StyledContainer = styled.div`
   height: 21rem;
-`;
+
+  @media screen and (max-width: 768px) {
+    height: 18rem;
+  }
+  `;
 const StyledImg = styled.img`
   height: 60%;
+  @media screen and (max-width: 768px) {
+    height: 66%;
+  }
 `;
 
 const StyledProductInfo = styled.div``;
@@ -16,25 +23,27 @@ const StyledDesc = styled.div`
   overflow: hidden;
 `;
 
- async function addToBasket() {
+async function addToBasket() {
   const { data, error } = await supabase
-  .from('cars')
-  .update({ count: 0 })
-  .eq('id', '1')
-  .select()
+    .from("cars")
+    .update({ count: 0 })
+    .eq("id", "1")
+    .select();
 
-  console.log(data)
+  console.log(data);
 }
 
 function ProductBox({ data }) {
   const { name, price, src, desc, count } = data;
   return (
-    <StyledContainer className="overflow-hidden rounded-xl w-full sm:w-56 xl:w-56 bg-slate-600 text-gray-200 shadow-md cursor-pointer">
+    <StyledContainer className="overflow-hidden rounded-xl w-44 sm:w-52 xl:w-56 bg-slate-600 text-gray-200 shadow-md cursor-pointer">
       <StyledImg src={src} className="block object-cover w-full" />
-      <StyledProductInfo className="flex justify-between items-center flex-col p-1 text-center mx-auto w-[90%] h-[38%]">
-        <h3 className="font-[yekan-b] text-lg">{name}</h3>
-        <StyledDesc>{desc.substring(0, 60)} ...</StyledDesc>
-        <div className="w-full flex justify-between items-center">
+      <StyledProductInfo className="flex justify-between items-center flex-col p-1 text-center mx-auto w-[90%] h-[34%] md:h-[38%]">
+        <h3 className="font-[yekan-b] md:text-lg text-md">{name}</h3>
+        <StyledDesc className="text-[15px] md:text-lg">
+          {desc.substring(0, 60)} ...
+        </StyledDesc>
+        <div className="w-full flex justify-between items-center text-[15px]">
           <p className="flex items-center h-10">{price}$</p>
           {count > 0 ? (
             <div className="flex">

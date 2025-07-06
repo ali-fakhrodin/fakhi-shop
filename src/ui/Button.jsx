@@ -4,10 +4,10 @@ function Button({
   style = "primary",
   onClick = "",
 }) {
-  const mainClassName = "border-none rounded-lg px-4 py-[2px] text-[15px]";
+  const mainClassName = "border-none rounded-lg px-2 md:px-4 py-[2px] text-[15px]";
   const className =
     style === "addToBasket"
-      ? "bg-slate-200 text-slate-600 font-semibold"
+      ? "bg-slate-200 text-slate-600 font-semibold text-[13px]"
       : style === "primary"
       ? "bg-green-600 text-white w-[50%] hover:bg-slate-600 h-10"
       : style === "delete"

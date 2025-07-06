@@ -7,7 +7,11 @@ import { useSearchParams } from "react-router-dom";
 import { useCars } from "../features/cars/useCars";
 
 const StyledContainer = styled.div`
-  grid-template-columns: 2fr 10fr;
+  grid-template-columns: 3fr 9fr;
+
+  @media screen and (max-width: 550px) {
+    grid-template-columns: 6fr 8fr;
+  }
 `;
 
 function Products() {
@@ -40,7 +44,7 @@ function Products() {
       <div>
         <SideFilter />
       </div>
-      <div className="flex gap-x-5 gap-y-4 mt-6 flex-wrap items-center justify-center">
+      <div className="flex gap-x-5 gap-y-4 mt-6 flex-wrap items-center justify-end">
         {sortedData.map((product) => (
           <ProductBox key={product.id} data={product}></ProductBox>
         ))}
