@@ -10,7 +10,7 @@ const StyledContainer = styled.div`
   }
   `;
 const StyledImg = styled.img`
-  height: 60%;
+  height: 62%;
   @media screen and (max-width: 768px) {
     height: 66%;
   }
@@ -41,7 +41,7 @@ function ProductBox({ data }) {
       <StyledProductInfo className="flex justify-between items-center flex-col p-1 text-center mx-auto w-[90%] h-[34%] md:h-[38%]">
         <h3 className="font-[yekan-b] md:text-lg text-md">{name}</h3>
         <StyledDesc className="text-[15px] md:text-lg">
-          {desc.substring(0, 60)} ...
+          {desc?.substring(0, 60)} ...
         </StyledDesc>
         <div className="w-full flex justify-between items-center text-[15px]">
           <p className="flex items-center h-10">{price}$</p>
