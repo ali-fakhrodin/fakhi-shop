@@ -5,15 +5,14 @@ import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { CgClose } from "react-icons/cg";
 import { useUser } from "../features/authentication/useUser";
+import toast from "react-hot-toast";
 
 const liClassname =
   "flex items-center bg-slate-600 text-slate-200 md:px-5 px-3 py-4 rounded-lg hover:bg-slate-700 flex items-center gap-2";
 
 function PageNav() {
   const [isOpenNavabar, setIsOpenNavabar] = useState(false);
-
   const { user } = useUser();
-
   return (
     <>
       <div
@@ -61,7 +60,14 @@ function PageNav() {
             </div>
             <div className={liClassname}>
               <NavLink to="login">
-                {user.user.role === "authenticated" ?  <span className="flex items-center gap-2 text-sm">خروج<BiExit className="rotate-180"/></span> : "ورود / ثبت نام"}
+                {user?.user.role === "authenticated" ? (
+                  <span className="flex items-center gap-2 text-sm">
+                    خروج
+                    <BiExit className="rotate-180" />
+                  </span>
+                ) : (
+                  "ورود / ثبت نام"
+                )}
               </NavLink>
             </div>
           </div>
