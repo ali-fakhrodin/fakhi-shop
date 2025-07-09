@@ -1,15 +1,18 @@
-import { BiBasket, BiCar, BiHome, BiUser } from "react-icons/bi";
+import { BiBasket, BiCar, BiExit, BiHome, BiUser } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
 import SearchBox from "./SearchBox";
 import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { CgClose } from "react-icons/cg";
+import { useUser } from "../features/authentication/useUser";
 
 const liClassname =
   "flex items-center bg-slate-600 text-slate-200 md:px-5 px-3 py-4 rounded-lg hover:bg-slate-700 flex items-center gap-2";
 
 function PageNav() {
   const [isOpenNavabar, setIsOpenNavabar] = useState(false);
+
+  const { user } = useUser();
 
   return (
     <>
@@ -22,10 +25,18 @@ function PageNav() {
           className={`visible md:hidden text-white p-2 text-2xl`}
           onClick={() => setIsOpenNavabar((isOpen) => !isOpen)}
         >
-          {isOpenNavabar ? <CgClose className="absolute top-4 right-3"/> : <GiHamburgerMenu/>}
+          {isOpenNavabar ? (
+            <CgClose className="absolute top-4 right-3" />
+          ) : (
+            <GiHamburgerMenu />
+          )}
         </button>
         <div className="flex flex-col md:flex-row justify-between w-full">
-          <div className={`flex flex-col md:flex-row items-center ${isOpenNavabar ? "flex" : "hidden"} md:flex`}>
+          <div
+            className={`flex flex-col md:flex-row items-center ${
+              isOpenNavabar ? "flex" : "hidden"
+            } md:flex`}
+          >
             <NavLink to="home" className={liClassname}>
               <BiHome className="block" /> <span>خانه</span>
             </NavLink>
@@ -49,7 +60,9 @@ function PageNav() {
               <SearchBox />
             </div>
             <div className={liClassname}>
-              <NavLink to="login">ورود / ثبت نام</NavLink>
+              <NavLink to="login">
+                {user.user.role === "authenticated" ?  <span className="flex items-center gap-2 text-sm">خروج<BiExit className="rotate-180"/></span> : "ورود / ثبت نام"}
+              </NavLink>
             </div>
           </div>
         </div>

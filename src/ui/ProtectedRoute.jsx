@@ -15,8 +15,8 @@ function ProtectedRoute({ children }) {
 
   if (isLoading) return <p className="text-red-900 text-3xl">Loading</p>;
 
-    console.log(isAuthenticated);
-  if (isAuthenticated) return children;
+  // console.log(isAuthenticated);
+  return children;
 }
 
 export default ProtectedRoute;
