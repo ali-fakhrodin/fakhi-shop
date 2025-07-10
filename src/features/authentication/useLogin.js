@@ -11,7 +11,6 @@ export function useLogin() {
     },
     onSuccess: () => {
       navigate("/home");
-      console.log("ok")
     },
   });
 

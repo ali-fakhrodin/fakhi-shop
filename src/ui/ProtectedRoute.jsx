@@ -8,19 +8,20 @@ function ProtectedRoute({ children }) {
 
   useEffect(
     function () {
-      if (!isAuthenticated) navigate("/login");
+      if (!isLoading && !isAuthenticated) {
+        navigate("/login");
+      }
     },
-    [navigate, isAuthenticated, isLoading]
+    [isAuthenticated, isLoading]
   );
 
   if (isLoading)
     return (
-      <p className="text-red-900 text-3xl flex items-center justify-center h-[100vh]">
+      <p className="text-red-900 text-3xl flex items-center justify-center text-center h-[100vh]">
         ...Loading
       </p>
     );
 
-  // console.log(isAuthenticated);
   return children;
 }
 
