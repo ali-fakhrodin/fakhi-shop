@@ -17,6 +17,7 @@ function App() {
       <ReactQueryDevtools initialIsOpen={false} />
       <BrowserRouter>
         <Routes>
+          <Route path="login" element={<Login />} />
           <Route
             path=""
             element={
@@ -26,7 +27,6 @@ function App() {
             }
           >
             <Route index element={<Navigate replace to="home" />} />
-            <Route path="login" element={<Login />} />
             <Route path="home" element={<Home />} />
             <Route path="basket" element={<Basket />} />
             <Route path="products" element={<Products />} />

@@ -8,11 +8,9 @@ function ProtectedRoute({ children }) {
 
   useEffect(
     function () {
-      if (!isLoading && !isAuthenticated) {
-        navigate("/login");
-      }
+      if (!isLoading && !isAuthenticated) navigate("/login");
     },
-    [isAuthenticated, isLoading]
+    [isAuthenticated, isLoading, navigate]
   );
 
   if (isLoading)
@@ -22,7 +20,7 @@ function ProtectedRoute({ children }) {
       </p>
     );
 
-  return children;
+  if(isAuthenticated) return children;
 }
 
 export default ProtectedRoute;
