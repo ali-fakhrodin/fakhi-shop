@@ -7,7 +7,23 @@ export async function login({ email, password }) {
     password,
   });
 
-  if (error) toast.error("دوباره امتحان کنید")
+  if (error) toast.error("دوباره امتحان کنید");
+
+  return data;
+}
+
+export async function singup({ fullName, email, password }) {
+  let { data, error } = await supabase.auth.signUp({
+    email,
+    password,
+    options: {
+      data: {
+        fullName,
+      },
+    },
+  });
+
+  if (error) toast.error("دوباره امتحان کنید");
 
   return data;
 }
