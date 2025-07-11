@@ -8,9 +8,11 @@ export function useLogin() {
     mutationFn: ({ email, password }) => loginApi({ email, password }),
     onError: (err) => {
       console.log(err);
+      navigate("/login");
     },
     onSuccess: () => {
       navigate("/home");
+      console.log('s');
     },
   });
 
