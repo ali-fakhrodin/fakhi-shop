@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import LoginForm from "../features/authentication/LoginForm";
 import { Toaster } from "react-hot-toast";
-import { useSearchParams } from "react-router-dom";
 import { useState } from "react";
 import SingupForm from "../features/authentication/SingUpForm";
 
@@ -9,11 +8,9 @@ const StyledContainer = styled.div`
   height: 95vh;
 `;
 
-// const [searchParams, setSearchParams] = useSearchParams();
-
 function Login() {
   const [isLogin, setIsLogin] = useState(true);
-
+console.log(isLogin)
   return (
     <StyledContainer className="">
       <Toaster />

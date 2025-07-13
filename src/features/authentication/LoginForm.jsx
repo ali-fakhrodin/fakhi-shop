@@ -6,7 +6,7 @@ import { useLogin } from "./useLogin";
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login, isLoading } = useLogin();
+  const { login, isLoading, error } = useLogin();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -14,6 +14,13 @@ function LoginForm() {
     login({ email, password });
   }
 
+  console.log(error)
+  if (error)
+    return (
+      <p className="text-red-900 text-3xl flex items-center justify-center text-center h-[100vh]">
+        ...Loading
+      </p>
+    );
   return (
     <div className="flex flex-col gap-2 items-center justify-center h-[100%]">
       <div className="w-full flex flex-col items-center justify-center gap-2">

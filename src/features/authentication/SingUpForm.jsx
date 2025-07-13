@@ -6,10 +6,12 @@ import { useSingup } from "./useSingUp";
 function SingupForm() {
   const { isLoading, singup } = useSingup();
   const { register, formState, getValues, handleSubmit, reset } = useForm();
+  const { errors } = formState;
+  console.log(errors);
 
   function onSubmit({ fullName, email, password }) {
-    // if (isLoading) return <p>pp</p>;
-    singup({ fullName, email, password }, { onSettled: reset });
+    if (isLoading) return <p>pp</p>;
+    singup({ fullName, email, password }, { onSettled: () => reset() });
   }
 
   return (
@@ -65,6 +67,10 @@ function SingupForm() {
           disabled={isLoading}
           {...register("password", {
             required: "This field is required",
+            minLength: {
+              value: 8,
+              message: "Password needs a minimum of 8 characters",
+            },
           })}
         />
       </div>

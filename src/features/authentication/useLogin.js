@@ -4,17 +4,15 @@ import { useNavigate } from "react-router-dom";
 
 export function useLogin() {
   const navigate = useNavigate();
-  const { mutate: login, isLoading } = useMutation({
+  const { mutate: login, isLoading, error } = useMutation({
     mutationFn: ({ email, password }) => loginApi({ email, password }),
     onError: (err) => {
       console.log(err);
-      navigate("/login");
     },
     onSuccess: () => {
       navigate("/home");
-      console.log('s');
     },
   });
 
-  return { login, isLoading };
+  return { login, isLoading, error };
 }
