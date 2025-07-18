@@ -14,7 +14,6 @@ function LoginForm() {
     login({ email, password });
   }
 
-  console.log(error)
   if (error)
     return (
       <p className="text-red-900 text-3xl flex items-center justify-center text-center h-[100vh]">

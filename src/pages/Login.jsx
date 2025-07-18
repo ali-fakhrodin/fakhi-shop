@@ -10,7 +10,6 @@ const StyledContainer = styled.div`
 
 function Login() {
   const [isLogin, setIsLogin] = useState(true);
-console.log(isLogin)
   return (
     <StyledContainer className="">
       <Toaster />
