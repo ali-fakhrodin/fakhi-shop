@@ -1,17 +1,22 @@
 import { useForm } from "react-hook-form";
 import Button from "../../ui/Button";
 import Input from "../../ui/Input";
-import { useSingup } from "./useSingUp";
+import { useSignup } from "./useSignup";
 
 function SingupForm() {
-  const { isLoading, singup } = useSingup();
+  const { isLoading, signup } = useSignup();
   const { register, formState, getValues, handleSubmit, reset } = useForm();
   const { errors } = formState;
   console.log(errors);
 
   function onSubmit({ fullName, email, password }) {
-    if (isLoading) return <p>pp</p>;
-    singup({ fullName, email, password }, { onSettled: () => reset() });
+    if (isLoading)
+      return (
+        <p className="text-red-900 text-3xl flex items-center justify-center text-center h-[100vh]">
+          ...Loading
+        </p>
+      );
+    signup({ fullName, email, password }, { onSettled: () => reset() });
   }
 
   return (
@@ -24,8 +29,6 @@ function SingupForm() {
           نام و نام خانوادگی
         </label>
         <Input
-          // onChange={(e) => setEmail(e.target.value)}
-
           type="text"
           placeholder="example"
           id="fullName"
@@ -57,8 +60,6 @@ function SingupForm() {
           پسوورد
         </label>
         <Input
-          // onChange={(e) => setPassword(e.target.value)}
-          // value={password}
           type="password"
           placeholder="Password"
           id="password"
@@ -77,7 +78,7 @@ function SingupForm() {
       <Button
         type="submit"
         style="primary"
-        //    text={isLoading ? "صبر کنید!" : "تایید"}
+        text={isLoading ? "صبر کنید!" : "تایید"}
         disabled={isLoading}
         onClick={handleSubmit}
       />

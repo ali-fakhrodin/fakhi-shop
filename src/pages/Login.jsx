@@ -2,7 +2,7 @@ import styled from "styled-components";
 import LoginForm from "../features/authentication/LoginForm";
 import { Toaster } from "react-hot-toast";
 import { useState } from "react";
-import SingupForm from "../features/authentication/SingUpForm";
+import SignupForm from "../features/authentication/SignupForm";
 
 const StyledContainer = styled.div`
   height: 95vh;
@@ -31,7 +31,7 @@ function Login() {
           ثبت نام
         </button>
       </div>
-      {isLogin ? <LoginForm /> : <SingupForm />}
+      {isLogin ? <LoginForm /> : <SignupForm />}
     </StyledContainer>
   );
 }

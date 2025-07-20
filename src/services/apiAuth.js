@@ -12,7 +12,7 @@ export async function login({ email, password }) {
   return data;
 }
 
-export async function singup({ fullName, email, password }) {
+export async function signup({ fullName, email, password }) {
   let { data, error } = await supabase.auth.signUp({
     email,
     password,
