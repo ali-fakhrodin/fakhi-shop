@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Button from "./Button";
-import supabase from "../services/supabase";
+import { addToBasket } from "../services/apiBasket";
 
 const StyledContainer = styled.div`
   height: 21rem;
@@ -8,7 +8,7 @@ const StyledContainer = styled.div`
   @media screen and (max-width: 768px) {
     height: 18rem;
   }
-  `;
+`;
 const StyledImg = styled.img`
   height: 62%;
   @media screen and (max-width: 768px) {
@@ -23,18 +23,9 @@ const StyledDesc = styled.div`
   overflow: hidden;
 `;
 
-async function addToBasket() {
-  const { data, error } = await supabase
-    .from("cars")
-    .update({ count: 0 })
-    .eq("id", "1")
-    .select();
-
-  console.log(data);
-}
-
 function ProductBox({ data }) {
-  const { name, price, src, desc, count } = data;
+  const { id, name, price, src, desc, count } = data;
+
   return (
     <StyledContainer className="overflow-hidden rounded-xl w-44 sm:w-52 xl:w-56 bg-slate-600 text-gray-200 shadow-md cursor-pointer">
       <StyledImg src={src} className="block object-cover w-full" />
@@ -61,7 +52,7 @@ function ProductBox({ data }) {
             <Button
               text="افزودن به سبد +"
               style="addToBasket"
-              onClick={() => addToBasket()}
+              onClick={() => addToBasket(id)}
             />
           )}
         </div>

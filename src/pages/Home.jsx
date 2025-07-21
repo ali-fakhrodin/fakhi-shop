@@ -10,6 +10,7 @@ import "swiper/css/effect-cube";
 import SwiperBox from "../ui/SwiperBox";
 import { BiConversation } from "react-icons/bi";
 import { TiTickOutline } from "react-icons/ti";
+import { useUser } from "../features/authentication/useUser";
 
 const images = [
   "public/home-swiper/img_1.jpg",
@@ -19,6 +20,8 @@ const images = [
 ];
 
 function Home() {
+  const {user: {user}} = useUser()
+  console.log(user)
   return (
     <>
       <div className="h-[70vh] md:h-[60vh] flex items-center justify-center mt-2 relative overflow-hidden">

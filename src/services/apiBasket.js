@@ -1,4 +1,4 @@
-// import supabase from "./supabase";
+import supabase from "./supabase";
 
 // export async function getBasket() {
 //   let { data, error } = await supabase.from("basket").select("*");
@@ -8,3 +8,11 @@
 
 //   return data;
 // }
+
+export async function addToBasket(id) {
+  const { data, error } = await supabase
+    .from("cars")
+    .update({ count: 1 })
+    .eq("id", id)
+    .select();
+}
