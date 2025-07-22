@@ -1,19 +1,20 @@
 // import BasketItem from "../features/basket/BasketItem";
-// import { useBasket } from "../features/basket/useBasket";
-// import Loading from "../ui/Loading";
-// import ProductBox from "../ui/ProductBox";
+import { useCars } from "../features/cars/useCars";
+import Loading from "../ui/Loading";
+import ProductBox from "../ui/ProductBox";
 
 function Basket() {
-  // const { isLoading, basket } = useBasket();
+  const { isLoading, cars } = useCars();
 
-  // if (isLoading) return <Loading />;
+  if (isLoading) return <Loading />;
+  const basketItems = cars.filter((car) => car.count > 0);
   return (
     <div>
-      <div className="flex gap-x-5 gap-y-4 mt-6 flex-wrap items-center justify-center">
-        سبد خرید
-        {/* {basket.map((item) => (
+      <div className="flex gap-x-5 gap-y-4 mt-6 flex-wrap items-center justify-end">
+        {/* سبد خرید */}
+        {basketItems.map((item) => (
           <ProductBox key={item.id} data={item}></ProductBox>
-        ))} */}
+        ))}
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Button from "./Button";
-import { addToBasket } from "../services/apiBasket";
+import { addToBasket, decItem, incItem } from "../services/apiBasket";
 
 const StyledContainer = styled.div`
   height: 21rem;
@@ -39,11 +39,17 @@ function ProductBox({ data }) {
           {count > 0 ? (
             <div className="flex">
               <div className="flex gap-3">
-                <button className="bg-gray-900 hover:bg-gray-700 px-3 text-red-600 rounded-lg text-[19px]">
+                <button
+                  className="bg-gray-900 hover:bg-gray-700 px-3 text-red-600 rounded-lg text-[19px]"
+                  onClick={() => decItem(id, count)}
+                >
                   -
                 </button>
                 <p>{count}</p>
-                <button className="bg-gray-900 hover:bg-gray-700 px-3 text-green-600 rounded-lg text-[19px]">
+                <button
+                  className="bg-gray-900 hover:bg-gray-700 px-3 text-green-600 rounded-lg text-[19px]"
+                  onClick={() => incItem(id, count)}
+                >
                   +
                 </button>
               </div>

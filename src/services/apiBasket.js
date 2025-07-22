@@ -15,4 +15,22 @@ export async function addToBasket(id) {
     .update({ count: 1 })
     .eq("id", id)
     .select();
+  console.log(data);
+}
+
+export async function incItem(id, count) {
+  const { data, error } = await supabase
+    .from("cars")
+    .update({ count: count + 1 })
+    .eq("id", id)
+    .select();
+  console.log(data, count);
+}
+
+export async function decItem(id, count) {
+  const { data, error } = await supabase
+    .from("cars")
+    .update({ count: count - 1 })
+    .eq("id", id)
+    .select();
 }
