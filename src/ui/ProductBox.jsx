@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Button from "./Button";
 import { addToBasket, decItem, incItem } from "../services/apiBasket";
+import { BiTrash } from "react-icons/bi";
 
 const StyledContainer = styled.div`
   height: 21rem;
@@ -43,7 +44,7 @@ function ProductBox({ data }) {
                   className="bg-gray-900 hover:bg-gray-700 px-3 text-red-600 rounded-lg text-[19px]"
                   onClick={() => decItem(id, count)}
                 >
-                  -
+                  {count === 1 ? <BiTrash className="text-sm" /> : "-"}
                 </button>
                 <p>{count}</p>
                 <button

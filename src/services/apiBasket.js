@@ -15,7 +15,6 @@ export async function addToBasket(id) {
     .update({ count: 1 })
     .eq("id", id)
     .select();
-  console.log(data);
 }
 
 export async function incItem(id, count) {

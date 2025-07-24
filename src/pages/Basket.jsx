@@ -11,7 +11,6 @@ function Basket() {
   return (
     <div>
       <div className="flex gap-x-5 gap-y-4 mt-6 flex-wrap items-center justify-end">
-        {/* سبد خرید */}
         {basketItems.map((item) => (
           <ProductBox key={item.id} data={item}></ProductBox>
         ))}
