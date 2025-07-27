@@ -21,7 +21,6 @@ const images = [
 
 function Home() {
   const {user: {user}} = useUser()
-  console.log(user)
   return (
     <>
       <div className="h-[70vh] md:h-[60vh] flex items-center justify-center mt-2 relative overflow-hidden">
