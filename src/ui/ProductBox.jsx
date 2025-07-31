@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Button from "./Button";
 import { addToBasket, decItem, incItem } from "../services/apiBasket";
 import { BiTrash } from "react-icons/bi";
+import { useQueryClient } from "@tanstack/react-query";
 
 const StyledContainer = styled.div`
   height: 21rem;
@@ -26,6 +27,7 @@ const StyledDesc = styled.div`
 
 function ProductBox({ data }) {
   const { id, name, price, src, desc, count } = data;
+  const queryClient = useQueryClient();
 
   return (
     <StyledContainer className="overflow-hidden rounded-xl w-44 sm:w-52 xl:w-56 bg-slate-600 text-gray-200 shadow-md cursor-pointer">
@@ -42,14 +44,20 @@ function ProductBox({ data }) {
               <div className="flex gap-3">
                 <button
                   className="bg-gray-900 hover:bg-gray-700 px-3 text-red-600 rounded-lg text-[19px]"
-                  onClick={() => decItem(id, count)}
+                  onClick={() => {
+                    decItem(id, count);
+                    queryClient.invalidateQueries();
+                  }}
                 >
                   {count === 1 ? <BiTrash className="text-sm" /> : "-"}
                 </button>
                 <p>{count}</p>
                 <button
                   className="bg-gray-900 hover:bg-gray-700 px-3 text-green-600 rounded-lg text-[19px]"
-                  onClick={() => incItem(id, count)}
+                  onClick={() => {
+                    incItem(id, count);
+                    queryClient.invalidateQueries();
+                  }}
                 >
                   +
                 </button>
