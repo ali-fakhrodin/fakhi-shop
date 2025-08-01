@@ -67,7 +67,10 @@ function ProductBox({ data }) {
             <Button
               text="افزودن به سبد +"
               style="addToBasket"
-              onClick={() => addToBasket(id)}
+              onClick={() => {
+                addToBasket(id);
+                queryClient.invalidateQueries();
+              }}
             />
           )}
         </div>

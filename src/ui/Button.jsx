@@ -3,6 +3,7 @@ function Button({
   type = "button",
   style = "primary",
   onClick = "",
+  addClassName=""
 }) {
   const mainClassName = "border-none rounded-lg px-2 md:px-4 py-[2px] text-[15px]";
   const className =
@@ -17,7 +18,7 @@ function Button({
   return (
     <button
       type={type}
-      className={mainClassName + " " + className}
+      className={mainClassName + " " + className + " " + addClassName}
       onClick={onClick}
     >
       {text}
