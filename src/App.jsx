@@ -8,6 +8,7 @@ import Products from "./pages/Products.jsx";
 import Profile from "./pages/Profile.jsx";
 import Login from "./pages/Login.jsx";
 import ProtectedRoute from "./ui/ProtectedRoute.jsx";
+import AddNewCar from "./pages/AddNewCar.jsx";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ function App() {
             <Route path="basket" element={<Basket />} />
             <Route path="products" element={<Products />} />
             <Route path="profile" element={<Profile />} />
+            <Route path="addCar" element={<AddNewCar />} />
           </Route>
         </Routes>
       </BrowserRouter>

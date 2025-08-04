@@ -1,4 +1,11 @@
-import { BiBasket, BiCar, BiExit, BiHome, BiUser } from "react-icons/bi";
+import {
+  BiBasket,
+  BiCar,
+  BiExit,
+  BiHome,
+  BiPlus,
+  BiUser,
+} from "react-icons/bi";
 import { NavLink } from "react-router-dom";
 import SearchBox from "./SearchBox";
 import { useState } from "react";
@@ -50,6 +57,10 @@ function PageNav() {
             <NavLink to="profile" className={liClassname}>
               <BiUser /> <span>پروفایل</span>
             </NavLink>
+            <NavLink to="addCar" className={liClassname}>
+              <BiPlus />
+              <span>فروش</span>
+            </NavLink>
           </div>
 
           <div
@@ -60,12 +71,14 @@ function PageNav() {
             <div className="ml-4">
               <SearchBox />
             </div>
+
             <div className={liClassname}>
               <NavLink to="login">
                 {user?.user.role === "authenticated" ? (
                   <button
                     className="flex items-center gap-2 text-sm"
-                    onClick={logout} disabled={isLoading}
+                    onClick={logout}
+                    disabled={isLoading}
                   >
                     خروج
                     <BiExit className="rotate-180" />
