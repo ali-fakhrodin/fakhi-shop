@@ -9,10 +9,10 @@ function Basket() {
 
   if (isLoading) return <Loading />;
   const basketItems = cars.filter((car) => car.count > 0);
-  const totalPrice = basketItems.reduce(
-    (a, b) => a.price * a.count + b.price * b.count
-  );
-
+  const totalPrice = basketItems.reduce((a, b) => a + b.price * b.count, 0);
+  // console.log(totalPrice)
+  // console.log(basketItems)
+  basketItems.map((item) => console.log(item.count));
   return (
     <div>
       <div className="flex gap-x-5 gap-y-4 mt-6 flex-wrap items-center justify-end">
