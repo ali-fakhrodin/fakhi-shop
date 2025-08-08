@@ -1,4 +1,4 @@
-import supabase from "./supabase";
+import supabase, { supabaseUrl } from "./supabase";
 
 export async function getCars() {
   let { data, error } = await supabase.from("cars").select("*");
@@ -10,6 +10,12 @@ export async function getCars() {
 }
 
 export async function createCar(newCar) {
+  const imageName = `${Math.random()}-${newCar.image.name}`.replaceAll("/", "");
+  const imagePath = `${supabaseUrl}/storage/v1/object/public/fakhi-shop/${imageName}`;
+
+  console.log(imagePath);
+  // 1. Create new car
+
   const { data, error } = await supabase
     .from("cars")
     .insert([
@@ -17,12 +23,21 @@ export async function createCar(newCar) {
         name: newCar.name,
         price: newCar.price,
         desc: newCar.desc,
-        src: newCar.image,
+        src: imagePath,
+        score: 5,
       },
     ])
     .select();
 
-  console.log(newCar);
-  console.log("data", data);
-  console.log("error", error);
+  // 2. Save car image
+
+  const { error: storageError } = await supabase.storage
+    .from("fakhi-shop")
+    .upload(imageName, newCar.image);
+
+  // console.log(newCar);
+
+  console.log("image", newCar.image);
+  console.log("imageName", imageName);
+  console.log("storageError", storageError);
 }

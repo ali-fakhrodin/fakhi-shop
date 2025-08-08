@@ -10,9 +10,11 @@ function AddNewCar() {
   const { createCar, isLoading } = useCreateCar();
 
   function onSubmit(newCar) {
-    console.log(newCar);
-    console.log(isLoading);
-    createCar(newCar)
+    const image =
+      typeof newCar.image === "string" ? newCar.image : newCar.image[0];
+    console.log(image);
+
+    createCar({ ...newCar, image: image });
   }
 
   function onError(err) {
@@ -83,7 +85,7 @@ function AddNewCar() {
             disabled={isLoading}
             className="w-1/2 px-2 py-1 rounded-lg bg-green-600 text-white"
           >
-            تایید
+            {isLoading ? "در حال دریافت اطلاعات" : "تایید"}
           </button>
         </div>
       </form>
