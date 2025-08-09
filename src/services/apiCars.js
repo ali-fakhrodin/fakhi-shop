@@ -34,10 +34,4 @@ export async function createCar(newCar) {
   const { error: storageError } = await supabase.storage
     .from("fakhi-shop")
     .upload(imageName, newCar.image);
-
-  // console.log(newCar);
-
-  console.log("image", newCar.image);
-  console.log("imageName", imageName);
-  console.log("storageError", storageError);
 }

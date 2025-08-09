@@ -12,16 +12,12 @@ function AddNewCar() {
   function onSubmit(newCar) {
     const image =
       typeof newCar.image === "string" ? newCar.image : newCar.image[0];
-    console.log(image);
 
     createCar({ ...newCar, image: image });
   }
 
   function onError(err) {
-    console.log(err);
-
     for (const item in err) {
-      console.log(err[item].message);
       toast.error(err[item].message);
     }
   }
