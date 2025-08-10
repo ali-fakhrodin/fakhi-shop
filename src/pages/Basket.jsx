@@ -1,4 +1,5 @@
 // import BasketItem from "../features/basket/BasketItem";
+import toast, { Toaster } from "react-hot-toast";
 import { useCars } from "../features/cars/useCars";
 import Button from "../ui/Button";
 import Loading from "../ui/Loading";
@@ -10,11 +11,16 @@ function Basket() {
   if (isLoading) return <Loading />;
   const basketItems = cars.filter((car) => car.count > 0);
   const totalPrice = basketItems.reduce((a, b) => a + b.price * b.count, 0);
-  // console.log(totalPrice)
-  // console.log(basketItems)
+
   basketItems.map((item) => console.log(item.count));
+  function submitBasket() {
+    console.log("submit");
+    toast.success("خرید شما ثبت شد");
+  }
+
   return (
     <div>
+      <Toaster />
       <div className="flex gap-x-5 gap-y-4 mt-6 flex-wrap items-center justify-end">
         {basketItems.map((item) => (
           <ProductBox key={item.id} data={item}></ProductBox>
@@ -33,6 +39,7 @@ function Basket() {
             type="submit"
             style="primary"
             addClassName="mx-auto mt-8"
+            onClick={submitBasket}
           />
         </div>
       </div>
