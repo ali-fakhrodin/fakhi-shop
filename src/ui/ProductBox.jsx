@@ -34,7 +34,7 @@ function ProductBox({ data }) {
   const queryClient = useQueryClient();
   const { incItem, isLoading: isIncreasing } = useIncreaseItem();
   const { decItem, isLoading: isDecreasing } = useDecreaseItem();
-  console.log(isIncreasing);
+
   return (
     <StyledContainer className="overflow-hidden rounded-xl w-44 sm:w-52 xl:w-56 bg-slate-600 text-gray-200 shadow-md cursor-pointer">
       <StyledImg src={src} className="block object-cover w-full" />
@@ -51,19 +51,20 @@ function ProductBox({ data }) {
                 <button
                   className="bg-gray-900 hover:bg-gray-700 px-3 text-red-600 rounded-lg text-[19px]"
                   onClick={() => {
-                    decItem({id, count});
+                    decItem({ id, count });
                     queryClient.invalidateQueries();
                   }}
                 >
                   {count === 1 ? <BiTrash className="text-sm" /> : "-"}
                 </button>
-                <p>{isIncreasing ? "در حال افزودن" : count}</p>
+
+                <p>{isIncreasing || isDecreasing ? "..." : count}</p>
+
                 <button
                   disabled={isIncreasing}
                   className="bg-gray-900 hover:bg-gray-700 px-3 text-green-600 rounded-lg text-[19px]"
                   onClick={() => {
                     incItem({ id, count });
-                    queryClient.invalidateQueries();
                   }}
                 >
                   +
