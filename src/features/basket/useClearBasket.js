@@ -1,9 +1,8 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { clearBasket as clearBasketApi } from "../../services/apiBasket";
 import toast from "react-hot-toast";
 
 export function useClearBasket() {
-
   const {
     mutate: clearBasket,
     error,

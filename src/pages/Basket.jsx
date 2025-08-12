@@ -10,6 +10,7 @@ import { useQueryClient } from "@tanstack/react-query";
 function Basket() {
   const { isLoading, cars } = useCars();
   const { clearBasket, isLoading: isSubmitting, error } = useClearBasket();
+
   const queryClient = useQueryClient();
 
   if (isLoading) return <Loading />;
@@ -19,7 +20,7 @@ function Basket() {
 
   function submitBasket() {
     if (error) return;
-    console.log(isSubmitting);
+
     queryClient.invalidateQueries();
 
     clearBasket();
@@ -29,7 +30,9 @@ function Basket() {
     <div>
       <Toaster />
       {isSubmitting && (
-        <p className="fixed top-1/3 bottom-1/3 left-0 right-0 text-center w-full">منتظر بمانید...</p>
+        <p className="fixed top-1/3 bottom-1/3 left-0 right-0 text-center w-full">
+          منتظر بمانید...
+        </p>
       )}
       {!isCarInBasket && (
         <p className="text-xl w-full h-[47vh] flex justify-center items-center">

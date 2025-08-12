@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 
 const FilterButton = styled.button`
   ${(props) =>
-    props.active &&
+    props.active === "true" &&
     css`
       background-color: rgb(30, 143, 74);
     `}
@@ -31,7 +31,7 @@ function FilterBox({ filterField, options }) {
       {options.map((option) => (
         <FilterButton
           className="bg-neutral-500 hover:bg-green-800 "
-          active={currFilter === option.value}
+          active={(currFilter === option.value).toString()}
           key={option.value}
           onClick={() => handleClick(option.value)}
         >

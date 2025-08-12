@@ -18,6 +18,9 @@ export async function addToBasket(id) {
 }
 
 export async function incItem(id, count) {
+  console.log(id);
+  console.log(count);
+  
   const { data } = await supabase
     .from("cars")
     .update({ count: count + 1 })
