@@ -40,16 +40,29 @@ function Products() {
   );
 
   return (
-    <StyledContainer className="grid">
-      <div>
-        <SideFilter />
-      </div>
-      <div className="flex gap-x-5 gap-y-4 mt-6 flex-wrap items-center justify-end">
-        {sortedData.map((product) => (
-          <ProductBox key={product.id} data={product}></ProductBox>
-        ))}
-      </div>
-    </StyledContainer>
+    <>
+      <StyledContainer className="grid">
+        <div>
+          <SideFilter />
+        </div>
+
+        <div>
+          <div className="flex gap-1">
+            <p className="py-2 mb-3 mt-1 w-1/2 flex justify-center bg-slate-700 text-white rounded-r-xl">
+              بهترین هارا
+            </p>
+            <p className="py-2 mb-3 mt-1 w-1/2 flex justify-center bg-slate-700 text-white rounded-l-xl">
+              از ما بخواهید
+            </p>
+          </div>
+          <div className="flex gap-x-4 gap-y-4 flex-wrap items-center justify-end">
+            {sortedData.map((product) => (
+              <ProductBox key={product.id} data={product}></ProductBox>
+            ))}
+          </div>
+        </div>
+      </StyledContainer>
+    </>
   );
 }
 

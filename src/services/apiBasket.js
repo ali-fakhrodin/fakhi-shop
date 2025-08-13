@@ -1,14 +1,5 @@
 import supabase from "./supabase";
 
-// export async function getBasket() {
-//   let { data } = await supabase.from("basket").select("*");
-//   if (error) {
-//     throw new Error("Basket items could not be loaded");
-//   }
-
-//   return data;
-// }
-
 export async function addToBasket(id) {
   const { data } = await supabase
     .from("cars")
