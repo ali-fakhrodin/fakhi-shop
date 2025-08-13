@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import Button from "./Button";
-import { addToBasket } from "../services/apiBasket";
 import { BiTrash } from "react-icons/bi";
 import { useQueryClient } from "@tanstack/react-query";
 import {
   useDecreaseItem,
   useIncreaseItem,
 } from "../features/basket/useIncAndDec.js";
+import { useAddInBasket } from "../features/basket/useAddInBasket.js";
 
 const StyledContainer = styled.div`
   height: 21rem;
@@ -32,6 +32,7 @@ const StyledDesc = styled.div`
 function ProductBox({ data }) {
   const { id, name, price, src, desc, count } = data;
   const queryClient = useQueryClient();
+  const { addToBasket, isLoading: isAddingToBasket } = useAddInBasket();
   const { incItem, isLoading: isIncreasing } = useIncreaseItem();
   const { decItem, isLoading: isDecreasing } = useDecreaseItem();
 
@@ -73,11 +74,10 @@ function ProductBox({ data }) {
             </div>
           ) : (
             <Button
-              text="افزودن به سبد +"
+              text={isAddingToBasket ? "...در حال افزودن" : "افزودن به سبد +"}
               style="addToBasket"
               onClick={() => {
                 addToBasket(id);
-                queryClient.invalidateQueries();
               }}
             />
           )}

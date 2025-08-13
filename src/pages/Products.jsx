@@ -5,6 +5,7 @@ import ProductBox from "../ui/ProductBox";
 import Loading from "../ui/Loading";
 import { useSearchParams } from "react-router-dom";
 import { useCars } from "../features/cars/useCars";
+import { Toaster } from "react-hot-toast";
 
 const StyledContainer = styled.div`
   grid-template-columns: 3fr 9fr;
@@ -42,6 +43,7 @@ function Products() {
   return (
     <>
       <StyledContainer className="grid">
+        <Toaster />
         <div>
           <SideFilter />
         </div>
