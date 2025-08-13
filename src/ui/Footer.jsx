@@ -7,7 +7,7 @@ const StyledFooter = styled.footer`
 
 function Footer() {
   return (
-    <StyledFooter className="mx-auto mt-6 mb-3 bg-gray-700 z-10 rounded-xl px-8 pb-16 pt-8 text-gray-200">
+    <StyledFooter className="mx-auto mt-8 mb-3 bg-gray-700 z-10 rounded-xl px-8 pb-4 pt-8 text-gray-200">
       <div className="flex flex-col sm:flex-row justify-center sm:justify-between ">
         <div className="w-full sm:w-1/4 text-center">
           <p>شبکه های مجازی</p>
@@ -16,9 +16,7 @@ function Footer() {
           </div>
         </div>
 
-        <div
-          className="flex gap-16 w-full sm:w-1/4 my-4 sm:my-0"
-        >
+        <div className="flex gap-16 w-full sm:w-1/4 my-4 sm:my-0">
           <div className="w-full sm:w-1/2 md:w-1/4 text-center flex flex-col">
             <a>ورود</a>
             <a>ثبت نام</a>
@@ -46,6 +44,11 @@ function Footer() {
           className="rounded-xl px-3 py-1 w-1/2 sm:w-1/4 text-md"
           placeholder="Enter your email"
         />
+      </div>
+      <div className="text-center mt-16">
+        <p className="text-slate-300 mb-2">
+          --- تیم توسعه دهنده Fakhrodin © ---
+        </p>
       </div>
     </StyledFooter>
   );

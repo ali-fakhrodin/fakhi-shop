@@ -22,6 +22,8 @@ export async function decItem(id, count) {
     .update({ count: count - 1 })
     .eq("id", id)
     .select();
+
+  return { data };
 }
 
 export async function clearBasket() {

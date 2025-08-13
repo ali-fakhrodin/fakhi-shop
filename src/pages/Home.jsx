@@ -1,8 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay, Keyboard, EffectCube } from "swiper/modules";
-// Import Swiper styles
 import "swiper/css";
-// import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/keyboard";
 import "swiper/css/effect-cube";
@@ -20,7 +18,9 @@ const images = [
 ];
 
 function Home() {
-  const {user: {user}} = useUser()
+  const {
+    user: { user },
+  } = useUser();
   return (
     <>
       <div className="h-[70vh] md:h-[60vh] flex items-center justify-center mt-2 relative overflow-hidden">

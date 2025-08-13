@@ -3,6 +3,7 @@ import {
   decItem as decItemApi,
   incItem as incItemApi,
 } from "../../services/apiBasket";
+import toast from "react-hot-toast";
 
 export function useIncreaseItem() {
   const queryClient = useQueryClient();
@@ -21,8 +22,11 @@ export function useDecreaseItem() {
   const { mutate: decItem, isLoading } = useMutation({
     mutationFn: ({ id, count }) => decItemApi(id, count),
 
-    onSuccess: () => {
+    onSuccess: ({ data: currentCar }) => {
       queryClient.invalidateQueries();
+
+      if (currentCar[0].count === 0)
+        toast.success("محصول مورد نظر از سبد حذف شد");
     },
   });
   return { decItem, isLoading };
