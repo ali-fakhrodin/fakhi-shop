@@ -53,7 +53,6 @@ function ProductBox({ data }) {
                   className="bg-gray-900 hover:bg-gray-700 px-3 text-red-600 rounded-lg text-[19px]"
                   onClick={() => {
                     decItem({ id, count });
-                    queryClient.invalidateQueries();
                   }}
                 >
                   {count === 1 ? <BiTrash className="text-sm" /> : "-"}
@@ -74,7 +73,7 @@ function ProductBox({ data }) {
             </div>
           ) : (
             <Button
-              text={isAddingToBasket ? "...در حال افزودن" : "افزودن به سبد +"}
+              text={isAddingToBasket ? "در حال افزودن..." : "افزودن به سبد +"}
               style="addToBasket"
               onClick={() => {
                 addToBasket(id);
