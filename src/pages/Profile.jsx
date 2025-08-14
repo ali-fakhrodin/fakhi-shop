@@ -12,13 +12,13 @@ function Profile() {
 
   // <p>لیست سفارشات شما</p>
   return (
-    <div className="flex flex-col justify-around items-center h-[40-vh] bg-slate-400 ">
-      <div className="w-full flex items-center flex-col gap-1 h-[20rem] overflow-y-scroll my-4">
+    <div className="flex flex-col md:flex-row justify-around items-center bg-slate-400 ">
+      <div className="w-full md:w-1/2 flex items-center md:items-start flex-col gap-1 h-[20rem] overflow-y-scroll my-4 px-2">
         {!isLoading
           ? orders.data.map((order) => (
-              <div className="w-[85%] bg-slate-600 rounded-lg overflow-hidden flex min-h-[4rem] gap-x-4 py-2 px-4">
+              <div className="w-[75%] md:w-full bg-slate-600 rounded-lg overflow-hidden flex gap-x-4 py-2 px-4 min-h-[3.3rem] sm:min-h-[4rem] text-sm sm:text-base">
                 <div>
-                  <p className="text-white">شماره سفارش: 4</p>
+                  <p className="text-white">شماره سفارش: {order.id}</p>
                   <p className="text-white">تعداد محصول</p>
                 </div>
                 <div>
