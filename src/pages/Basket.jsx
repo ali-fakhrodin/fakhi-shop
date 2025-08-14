@@ -22,7 +22,7 @@ function Basket() {
     if (error) return;
 
     queryClient.invalidateQueries();
-
+    
     clearBasket();
   }
 
