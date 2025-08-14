@@ -6,10 +6,12 @@ import Loading from "../ui/Loading";
 import ProductBox from "../ui/ProductBox";
 import { useClearBasket } from "../features/basket/useClearBasket";
 import { useQueryClient } from "@tanstack/react-query";
+import { useGetOrders } from "../features/orders/useGetOrders";
 
 function Basket() {
   const { isLoading, cars } = useCars();
   const { clearBasket, isLoading: isSubmitting, error } = useClearBasket();
+  const { data: getOrders} = useGetOrders();
 
   const queryClient = useQueryClient();
 
@@ -17,13 +19,12 @@ function Basket() {
   const basketItems = cars.filter((car) => car.count > 0);
   const totalPrice = basketItems.reduce((a, b) => a + b.price * b.count, 0);
   const isCarInBasket = basketItems.length !== 0;
-
   function submitBasket() {
     if (error) return;
 
     queryClient.invalidateQueries();
-    
-    clearBasket();
+    console.log(getOrders);
+    // clearBasket();
   }
 
   return (
