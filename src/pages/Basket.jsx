@@ -11,7 +11,6 @@ import { useGetOrders } from "../features/orders/useGetOrders";
 function Basket() {
   const { isLoading, cars } = useCars();
   const { clearBasket, isLoading: isSubmitting, error } = useClearBasket();
-  const { data: getOrders} = useGetOrders();
 
   const queryClient = useQueryClient();
 
@@ -23,7 +22,6 @@ function Basket() {
     if (error) return;
 
     queryClient.invalidateQueries();
-    console.log(getOrders);
     // clearBasket();
   }
 

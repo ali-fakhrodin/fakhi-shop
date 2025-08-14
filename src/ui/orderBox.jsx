@@ -1,9 +1,5 @@
-function orderBox({order}) {
-     return (
-          <div>
-               
-          </div>
-     )
+function orderBox({ order }) {
+  return <div></div>;
 }
 
-export default orderBox
+export default orderBox;
