@@ -1,19 +1,33 @@
 import { useUser } from "../features/authentication/useUser";
+import { useOrders } from "../features/orders/useOrders";
 
 function Profile() {
   const {
     user: { user },
   } = useUser();
-  console.log(user);
+
+  const { isLoading, orders } = useOrders();
+
+  if (!isLoading) console.log(orders, isLoading);
+
+  // <p>لیست سفارشات شما</p>
   return (
-    <div className="flex justify-around items-center bg-slate-400">
-      <div className="w-1/2 flex items-center flex-col">
-        <p>لیست سفارشات شما</p>
-        <div className=" w-[80%] bg-slate-700 p-1 rounded-lg overflow-hidden flex flex-col gap-1">
-          <p className="text-white">تعداد محصول</p>
-          <p className="text-white">مجموع مبلغ: 0</p>
-          <p className="text-white">وضعیت: تحویل داده شده</p>
-        </div>
+    <div className="flex flex-col justify-around items-center h-[40-vh] bg-slate-400 ">
+      <div className="w-full flex items-center flex-col gap-1 h-[20rem] overflow-y-scroll my-4">
+        {!isLoading
+          ? orders.data.map((order) => (
+              <div className="w-[85%] bg-slate-600 rounded-lg overflow-hidden flex min-h-[4rem] gap-x-4 py-2 px-4">
+                <div>
+                  <p className="text-white">شماره سفارش: 4</p>
+                  <p className="text-white">تعداد محصول</p>
+                </div>
+                <div>
+                  <p className="text-white">مجموع مبلغ: 0</p>
+                  <p className="text-white">وضعیت: تحویل داده شده</p>
+                </div>
+              </div>
+            ))
+          : null}
       </div>
 
       <form className="h-[50vh] flex w-1/2 flex-col justify-center items-center gap-3">

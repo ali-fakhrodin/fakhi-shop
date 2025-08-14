@@ -6,7 +6,6 @@ import Loading from "../ui/Loading";
 import ProductBox from "../ui/ProductBox";
 import { useClearBasket } from "../features/basket/useClearBasket";
 import { useQueryClient } from "@tanstack/react-query";
-import { useGetOrders } from "../features/orders/useGetOrders";
 
 function Basket() {
   const { isLoading, cars } = useCars();
