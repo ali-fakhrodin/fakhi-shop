@@ -10,9 +10,6 @@ export function useLogin() {
     error,
   } = useMutation({
     mutationFn: ({ email, password }) => loginApi({ email, password }),
-    onError: (err) => {
-      console.log(err);
-    },
     onSuccess: () => {
       navigate("/home", { replace: true });
     },
