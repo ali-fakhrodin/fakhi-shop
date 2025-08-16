@@ -9,12 +9,14 @@ import Loading from "./Loading";
 
 function SwiperBox({ title = "Title", path = "path" }) {
   const { isLoading, cars } = useCars();
-  // console.log(cars);
   if (isLoading) return <Loading />;
   return (
     <>
-      <div className="flex idtems-center justify-between mt-6 mb-3">
+      <div className="flex idtems-center justify-between mt-5 mb-3">
         <Title>{title}</Title>
+        <p className="flex items-center justify-center text-[17px] rounded-lg font-medium bg-slate-300 flex-grow mx-4">
+          {cars.length} ماشین در {title}
+        </p>
         <NavLink
           to={path}
           className="flex items-center gap-1 pl-1 text-emerald-900 font-semibold"

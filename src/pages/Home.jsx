@@ -21,9 +21,13 @@ function Home() {
   const {
     user: { user },
   } = useUser();
+  console.log();
   return (
     <>
       <div className="h-[70vh] md:h-[60vh] flex items-center justify-center mt-2 relative overflow-hidden">
+        <p className="mt-1 right-4 text-sm absoluted font-sans top-3 absolute z-30 text-white">
+           خوش اومدی {user.user_metadata.fullName} ✋
+        </p>
         <Swiper
           modules={[Pagination, Autoplay, Keyboard]}
           autoplay={{ delay: 4000 }}
