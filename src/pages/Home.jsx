@@ -21,12 +21,12 @@ function Home() {
   const {
     user: { user },
   } = useUser();
-  console.log();
+
   return (
     <>
       <div className="h-[70vh] md:h-[60vh] flex items-center justify-center mt-2 relative overflow-hidden">
         <p className="mt-1 right-4 text-sm absoluted font-sans top-3 absolute z-30 text-white">
-           خوش اومدی {user.user_metadata.fullName} ✋
+          خوش اومدی {user.user_metadata.fullName} ✋
         </p>
         <Swiper
           modules={[Pagination, Autoplay, Keyboard]}
@@ -54,9 +54,10 @@ function Home() {
           </div>
         </Swiper>
       </div>
+
       <div className="container">
         <SwiperBox title="بیشترین تخفیف" path="/products"></SwiperBox>
-        <div className="mt-8 p-2 md:p-8 flex flex-col lg:flex-row justify-between bg-[#44576D] shadow-xl gap-4 rounded-xl ">
+        <div className=" p-2 md:p-4 flex flex-col lg:flex-row justify-between bg-[#44576D] shadow-xl gap-2 rounded-xl">
           <div className="w-full lg:w-1/2 p-2 text-sm md:text-xl flex flex-col text-wrap gap-2">
             <h3 className="text-xl mb-4 text-stone-300 text-center bg-neutral-800 rounded-t-xl px-8 py-1.5">
               کار هایی که ما انجام میدیم
@@ -124,7 +125,7 @@ function Home() {
           </div>
         </div>
         <SwiperBox title="خریدی به صرفه" path="/products"></SwiperBox>
-        <div className="mt-8 p-6 flex justify-between bg-[#44576D] shadow-xl gap-4 rounded-xl ">
+        <div className="mt-4 p-6 flex justify-between bg-[#44576D] shadow-xl gap-4 rounded-xl ">
           <div className="w-full">
             <p className="text-xl mb-2 text-center bg-neutral-200 rounded-t-xl px-8 py-1.5 ">
               چرا فخی شاپ؟

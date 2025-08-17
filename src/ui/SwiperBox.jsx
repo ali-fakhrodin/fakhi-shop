@@ -11,10 +11,10 @@ function SwiperBox({ title = "Title", path = "path" }) {
   const { isLoading, cars } = useCars();
   if (isLoading) return <Loading />;
   return (
-    <>
-      <div className="flex idtems-center justify-between mt-5 mb-3">
+    <div className="my-6">
+      <div className="flex justify-between mb-3">
         <Title>{title}</Title>
-        <p className="flex items-center justify-center text-[17px] rounded-lg font-medium bg-slate-300 flex-grow mx-4">
+        <p className="flex items-center justify-center text-[17px] font-medium bg-slate-600 text-white rounded-t-[2rem] flex-grow mx-2">
           {cars.length} ماشین در {title}
         </p>
         <NavLink
@@ -26,7 +26,7 @@ function SwiperBox({ title = "Title", path = "path" }) {
         </NavLink>
       </div>
 
-      <div className="px-2 sm:px-0">
+      <div className="px-2 sm:px-0 mb-5">
         <Swiper
           modules={[Keyboard, Autoplay]}
           autoplay={{ delay: 4000 }}
@@ -49,11 +49,16 @@ function SwiperBox({ title = "Title", path = "path" }) {
               slidesPerView: 4.4,
             },
             1300: {
-              slidesPerView: 5.4,
+              slidesPerView: 5.5,
               spaceBetween: 10,
             },
-            1550: {
-              slidesPerView: 6,
+            1500: {
+              slidesPerView: 5.8,
+              spaceBetween: 10,
+            },
+            1700: {
+              slidesPerView: 6.7,
+              // spaceBetween: 5,
             },
           }}
         >
@@ -63,8 +68,10 @@ function SwiperBox({ title = "Title", path = "path" }) {
             </SwiperSlide>
           ))}
         </Swiper>
+      <div className="flex items-center justify-center text-[14px] font-medium bg-slate-600 h-4 text-white rounded-b-[2rem] mt-2 flex-grow mx-2">
       </div>
-    </>
+      </div>
+    </div>
   );
 }
 
