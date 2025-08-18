@@ -20,9 +20,18 @@ function Profile() {
       <form className="h-[25vh] flex w-1/2 flex-col justify-center items-center gap-3">
         <div className="flex items-center justify-center gap-2 w-full text-sm md:text-[16px]">
           <input
+            type="text"
+            value={user.user_metadata.fullName}
+            className="w-[60%] py-2 px-3 rounded-md"
+            dir="ltr"
+          />
+          <span className="text-white">نام کاربری</span>
+        </div>
+        <div className="flex items-center justify-center gap-2 w-full text-sm md:text-[16px]">
+          <input
             type="email"
             value={user.email}
-            className="w-[70%] py-2 px-3 rounded-md"
+            className="w-[63%] py-2 px-3 rounded-md"
             dir="ltr"
           />
           <span className="text-white">ایمیل</span>
@@ -30,7 +39,7 @@ function Profile() {
         <div className="flex items-center justify-center gap-2 w-full text-sm md:text-[16px]">
           <input
             type="tel"
-            className="w-[65%] py-2 px-3 rounded-md"
+            className="w-[58%] py-2 px-3 rounded-md"
             dir="ltr"
           />
           <span className="text-white">شماره همراه</span>
