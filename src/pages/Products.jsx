@@ -9,6 +9,7 @@ import { Toaster } from "react-hot-toast";
 
 const StyledContainer = styled.div`
   grid-template-columns: 3fr 9fr;
+  gap: 1rem;
 
   @media screen and (max-width: 550px) {
     grid-template-columns: 6fr 8fr;
@@ -57,10 +58,13 @@ function Products() {
               از ما بخواهید
             </p>
           </div>
-          <div className="flex gap-x-4 gap-y-4 flex-wrap items-center justify-end">
-            {sortedData.map((product) => (
-              <ProductBox key={product.id} data={product}></ProductBox>
-            ))}
+
+          <div className="flex justify-center mx-auto items-center bg-gray-300 p-3 rounded-xl">
+            <div className="flex gap-x-4 gap-y-4 flex-wrap items-center grow-0 justify-center bg-stone-50 py-4 px-2 min-w-min rounded-xl">
+              {sortedData.map((product) => (
+                <ProductBox key={product.id} data={product}></ProductBox>
+              ))}
+            </div>
           </div>
         </div>
       </StyledContainer>
