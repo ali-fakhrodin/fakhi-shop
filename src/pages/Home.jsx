@@ -57,38 +57,36 @@ function Home() {
 
       <div className="container">
         <SwiperBox title="بیشترین تخفیف" path="/products"></SwiperBox>
-        <div className=" p-2 md:p-4 flex flex-col lg:flex-row justify-between bg-[#44576D] shadow-xl gap-2 rounded-xl">
-          <div className="w-full lg:w-1/2 p-2 text-sm md:text-xl flex flex-col text-wrap gap-2">
-            <h3 className="text-xl mb-4 text-stone-300 text-center bg-neutral-800 rounded-t-xl px-8 py-1.5">
-              کار هایی که ما انجام میدیم
+        <div className="p-2 md:p-4 flex flex-col lg:flex-row justify-between bg-[#44576D] shadow-xl gap-2 rounded-xl">
+          <div className="w-full lg:w-1/2 p-2 text-sm md:text-xl text-wrap gap-2">
+            <h3 className="text-xl mb-3 text-center bg-neutral-200 rounded-t-xl px-8 py-1.5">
+              درباره شرکت فخی شاپ
             </h3>
-            <p className="pr-2 pl-4 py-1 bg-stone-200 w-max rounded-tl-xl rounded-r-lg flex items-center ">
-              <TiTickOutline /> &nbsp; خرید و فروش ماشین صفر، مستقیم از نمایندگی
-            </p>
-            <p className="pr-2 pl-4 py-1 bg-stone-200 w-max rounded-tl-xl rounded-r-lg flex items-center gap-2 ">
-              <BiConversation />
-              مشاوره رایگان شبانه روزی + راهنمایی برای خرید بصرفه
-            </p>
-            <p className="pr-2 pl-4 py-1 bg-stone-200 w-max rounded-tl-xl rounded-r-lg flex items-center ">
-              <TiTickOutline /> &nbsp; خرید و فروش ماشین کارکرده
-            </p>
-            <p className="pr-2 pl-4 py-1 bg-stone-200 w-max rounded-tl-xl rounded-r-lg flex items-center ">
+            <p className="p-3 bg-stone-200 text-wrap text-[15px] sm:text-[17px] xl:text-[18px] text-justify rounded-tl-xl rounded-r-lg flex items-center ">
               <TiTickOutline /> &nbsp; خرید و فروش ماشین کارکرده به همراه برگه
-              معاینه فنی
+              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
+              استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
+              در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد
+              نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد،
+              کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان
+              جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای
+              طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان
+              فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری
+              موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد
             </p>
           </div>
           <div className="w-full lg:w-1/2 p-2 ">
-            <p className="text-xl mb-2 text-center bg-neutral-200 rounded-t-xl px-8 py-1.5 ">
+            <h3 className="text-xl mb-3 text-center bg-neutral-200 rounded-t-xl px-8 py-1.5 ">
               ماشین های شرکت ما
-            </p>
+            </h3>
             <Swiper
               effect={"cube"}
               grabCursor={true}
               cubeEffect={{
                 shadow: true,
                 slideShadows: true,
-                shadowOffset: 10,
-                shadowScale: 0.94,
+                shadowOffset: -40,
+                shadowScale: 0.7,
               }}
               pagination={true}
               modules={[EffectCube, Pagination, Keyboard, Autoplay]}

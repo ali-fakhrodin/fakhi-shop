@@ -60,7 +60,7 @@ function Products() {
           </div>
 
           <div className="flex justify-center mx-auto items-center bg-gray-300 p-3 rounded-xl">
-            <div className="flex gap-x-4 gap-y-4 flex-wrap items-center grow-0 justify-center bg-stone-50 py-4 px-2 min-w-min rounded-xl">
+            <div className="flex gap-x-4 gap-y-4 flex-wrap items-center grow-0 justify-center bg-stone-50 py-4 px-2 min-w-min rounded-xl shadow-xl">
               {sortedData.map((product) => (
                 <ProductBox key={product.id} data={product}></ProductBox>
               ))}
