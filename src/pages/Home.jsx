@@ -6,9 +6,13 @@ import "swiper/css/keyboard";
 import "swiper/css/effect-cube";
 
 import SwiperBox from "../ui/SwiperBox";
-import { BiConversation } from "react-icons/bi";
-import { TiTickOutline } from "react-icons/ti";
+import { BiCar, BiConversation, BiSupport } from "react-icons/bi";
+import { TiMediaRecord, TiTickOutline, TiTime } from "react-icons/ti";
 import { useUser } from "../features/authentication/useUser";
+import { SiConsul } from "react-icons/si";
+import { GrCurrency, GrUpdate } from "react-icons/gr";
+import { MdUpdate } from "react-icons/md";
+import { CiShop } from "react-icons/ci";
 
 const images = [
   "public/home-swiper/img_1.jpg",
@@ -57,6 +61,7 @@ function Home() {
 
       <div className="container">
         <SwiperBox title="بیشترین تخفیف" path="/products"></SwiperBox>
+
         <div className="p-2 md:p-4 flex flex-col lg:flex-row justify-between bg-[#44576D] shadow-xl gap-2 rounded-xl">
           <div className="w-full lg:w-1/2 p-2 text-sm md:text-xl text-wrap gap-2">
             <h3 className="text-xl mb-3 text-center bg-neutral-200 rounded-t-xl px-8 py-1.5">
@@ -122,7 +127,9 @@ function Home() {
             </Swiper>
           </div>
         </div>
+
         <SwiperBox title="خریدی به صرفه" path="/products"></SwiperBox>
+
         <div className="mt-4 p-6 flex justify-between bg-[#44576D] shadow-xl gap-4 rounded-xl ">
           <div className="w-full">
             <p className="text-xl mb-2 text-center bg-neutral-200 rounded-t-xl px-8 py-1.5 ">
@@ -157,6 +164,32 @@ function Home() {
                   - مشاوره رایگان -
                 </li>
               </ul>
+            </div>
+            <div className="flex flex-wrap justify-around text-white mt-3 ">
+              <div className="flex flex-col items-center gap-2">
+                <BiSupport className="text-[4.4rem]" />
+                <p>مشاوره رایگان</p>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <CiShop className="text-[4.4rem]" />
+                <p>3 شعبه ی فروش در رشت</p>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <MdUpdate className="text-[4.4rem]" />
+                <p>آپدیت دائمی ماشین ها</p>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <BiCar className="text-[4.4rem]" />
+                <p>تیم متخصص چک آپ خودرو</p>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <TiTime className="text-[4.4rem]" />
+                <p>خدمات شبانه روی</p>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <GrCurrency className="text-[4.4rem]" />
+                <p>پذیرنده ی معامله با ارز منصوری</p>
+              </div>
             </div>
           </div>
         </div>
