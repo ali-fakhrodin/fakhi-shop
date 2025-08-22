@@ -6,11 +6,10 @@ import "swiper/css/keyboard";
 import "swiper/css/effect-cube";
 
 import SwiperBox from "../ui/SwiperBox";
-import { BiCar, BiConversation, BiSupport } from "react-icons/bi";
-import { TiMediaRecord, TiTickOutline, TiTime } from "react-icons/ti";
+import { BiCar, BiSupport } from "react-icons/bi";
+import { TiTickOutline, TiTime } from "react-icons/ti";
 import { useUser } from "../features/authentication/useUser";
-import { SiConsul } from "react-icons/si";
-import { GrCurrency, GrUpdate } from "react-icons/gr";
+import { GrCurrency } from "react-icons/gr";
 import { MdUpdate } from "react-icons/md";
 import { CiShop } from "react-icons/ci";
 
@@ -60,7 +59,7 @@ function Home() {
       </div>
 
       <div className="container">
-        <SwiperBox title="بیشترین تخفیف" path="/products"></SwiperBox>
+        <SwiperBox title="جدید ترین ماشین ها" path="/products"></SwiperBox>
 
         <div className="p-2 md:p-4 flex flex-col lg:flex-row justify-between bg-[#44576D] shadow-xl gap-2 rounded-xl">
           <div className="w-full lg:w-1/2 p-2 text-sm md:text-xl text-wrap gap-2">
@@ -94,10 +93,9 @@ function Home() {
                 shadowScale: 0.7,
               }}
               pagination={true}
-              modules={[EffectCube, Pagination, Keyboard, Autoplay]}
+              modules={[EffectCube, Pagination, Keyboard]}
               keyboard={true}
               speed={2000}
-              autoplay={{ delay: 2000 }}
               className="mySwiper"
             >
               <SwiperSlide>
@@ -127,6 +125,8 @@ function Home() {
             </Swiper>
           </div>
         </div>
+
+        <SwiperBox title="بیشترین تخفیف" path="/products"></SwiperBox>
 
         <SwiperBox title="خریدی به صرفه" path="/products"></SwiperBox>
 
