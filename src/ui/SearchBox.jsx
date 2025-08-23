@@ -8,10 +8,10 @@ function SearchBox() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   function searchInCars() {
-    searchParams.set("carName", "نیسان");
-    setSearchParams(searchParams);
-
     window.location.pathname !== "/products" && navigate("/products");
+    searchParams.set("carName", searchParam);
+
+    setSearchParams(searchParams);
   }
 
   return (
@@ -19,12 +19,14 @@ function SearchBox() {
       <input
         type="search"
         placeholder="جست و جوی ماشین ..."
-        className="rounded-lg md:w-44 xl:w-72 text-md pr-7 py-1 tracking-wider"
-        onKeyDown={searchInCars}
+        className="rounded-lg md:w-44 xl:w-72 text-md pr-8 tracking-wider"
         value={searchParam}
         onChange={(e) => setSearchParam(e.target.value)}
       />
-      <button className="absolute z-10 text-slate-600 top-[20%] right-1 size-5">
+      <button
+        className="absolute z-10 text-slate-100 bg-slate-700 top-0 right-0 bottom-0 px-1"
+        onClick={searchInCars}
+      >
         <BiSearch className="size-5" />
       </button>
     </div>

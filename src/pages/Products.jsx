@@ -21,16 +21,23 @@ function Products() {
   const [searchParams] = useSearchParams();
 
   // 1. Filter
-  const filteredBy = searchParams.get("price") || "all";
+  const filteredByPrice = searchParams.get("price") || "all";
+  const filteredByCarName = searchParams.get("carName") || "all";
   let filteredData;
 
   if (isLoading) return <Loading />;
 
-  if (filteredBy === "all") filteredData = cars;
-  if (filteredBy === "higher-65000")
+  if (filteredByPrice === "all") filteredData = cars;
+  if (filteredByPrice === "higher-65000")
     filteredData = [...cars].filter((item) => item.price >= 65000);
-  if (filteredBy === "lower-65000")
+  if (filteredByPrice === "lower-65000")
     filteredData = [...cars].filter((item) => item.price <= 65000);
+
+  if (filteredByCarName === "all") filteredData = filteredData;
+  if (filteredByCarName !== "all")
+    filteredData = [...filteredData].filter((item) =>
+      item.name.startsWith(filteredByCarName)
+    );
 
   // 2. Sort
   const sortBy = searchParams.get("sortBy") || "none";

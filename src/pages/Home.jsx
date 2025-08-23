@@ -128,7 +128,7 @@ function Home() {
 
         <SwiperBox title="بیشترین تخفیف" path="/products"></SwiperBox>
 
-        <SwiperBox title="خریدی به صرفه" path="/products"></SwiperBox>
+        {/* <SwiperBox title="خریدی به صرفه" path="/products"></SwiperBox> */}
 
         <div className="mt-4 p-6 flex justify-between bg-[#44576D] shadow-xl gap-4 rounded-xl ">
           <div className="w-full">

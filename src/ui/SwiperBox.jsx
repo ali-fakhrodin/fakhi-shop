@@ -11,8 +11,8 @@ function SwiperBox({ title = "Title", path = "path" }) {
   const { isLoading, cars } = useCars();
   if (isLoading) return <Loading />;
   return (
-    <div className="my-5 bg-stone-50 rounded-md px-2 pb-3 pt-2">
-      <div className="flex justify-between mb-3">
+    <div className="my-5 bg-stone-50 rounded-md px-2 py-2 shadow-xl">
+      <div className="flex justify-between mb-2">
         <Title>{title}</Title>
         <p className="flex items-center justify-center text-[17px] font-medium bg-slate-600 text-white rounded-t-[2rem] flex-grow mx-2">
           {cars.length} ماشین در {title}
@@ -68,8 +68,7 @@ function SwiperBox({ title = "Title", path = "path" }) {
             </SwiperSlide>
           ))}
         </Swiper>
-      <div className="flex items-center justify-center text-[14px] font-medium bg-slate-600 h-4 text-white rounded-b-[2rem] mt-2 flex-grow mx-2">
-      </div>
+        <div className="flex items-center justify-center text-[14px] font-medium bg-slate-600 h-4 text-white rounded-b-[2rem] mt-2 flex-grow mx-2"></div>
       </div>
     </div>
   );
