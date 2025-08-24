@@ -23,6 +23,9 @@ function SearchBox() {
           window.location.pathname !== "/products" && navigate("/products");
           setSearchParam(e.target.value);
         }}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") searchInCars();
+        }}
       />
       <button
         className="absolute z-10 text-slate-100 bg-slate-700 top-0 right-0 bottom-0 px-1"
