@@ -167,27 +167,27 @@ function Home() {
             </div>
             <div className="flex flex-wrap justify-around text-white mt-3 ">
               <div className="flex flex-col items-center gap-2">
-                <BiSupport className="text-[4.4rem]" />
+                <BiSupport className="text-[4rem]" />
                 <p>مشاوره رایگان</p>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <CiShop className="text-[4.4rem]" />
+                <CiShop className="text-[4rem]" />
                 <p>3 شعبه ی فروش در رشت</p>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <MdUpdate className="text-[4.4rem]" />
+                <MdUpdate className="text-[4rem]" />
                 <p>آپدیت دائمی ماشین ها</p>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <BiCar className="text-[4.4rem]" />
+                <BiCar className="text-[4rem]" />
                 <p>تیم متخصص چک آپ خودرو</p>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <TiTime className="text-[4.4rem]" />
+                <TiTime className="text-[4rem]" />
                 <p>خدمات شبانه روی</p>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <GrCurrency className="text-[4.4rem]" />
+                <GrCurrency className="text-[4rem]" />
                 <p>پذیرنده ی معامله با ارز منصوری</p>
               </div>
             </div>

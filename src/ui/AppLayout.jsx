@@ -10,7 +10,7 @@ function AppLayout() {
   const location = useLocation();
 
   return (
-    <div className="flex flex-col justify-between h-full relative overflow-auto bg-neutral-200 ">
+    <div className="flex flex-col justify-between h-full relative overflow-auto bg-slate-200">
       <PageNav />
       <Container
         className={`mx-auto ${
