@@ -23,8 +23,9 @@ function SearchBox() {
           window.location.pathname !== "/products" && navigate("/products");
           setSearchParam(e.target.value);
         }}
-        onKeyDown={(e) => {
+        onKeyUp={(e) => {
           if (e.key === "Enter") searchInCars();
+          if(e.target.value === "") searchInCars()
         }}
       />
       <button
