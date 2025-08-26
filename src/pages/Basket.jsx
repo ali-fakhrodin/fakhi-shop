@@ -17,11 +17,12 @@ function Basket() {
   const basketItems = cars.filter((car) => car.count > 0);
   const totalPrice = basketItems.reduce((a, b) => a + b.price * b.count, 0);
   const isCarInBasket = basketItems.length !== 0;
+
   function submitBasket() {
     if (error) return;
 
     queryClient.invalidateQueries();
-    // clearBasket();
+    clearBasket();
   }
 
   return (
