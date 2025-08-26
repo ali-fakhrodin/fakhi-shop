@@ -1,6 +1,9 @@
+import { BsToggle2Off } from "react-icons/bs";
 import { useUser } from "../features/authentication/useUser";
 import { useOrders } from "../features/orders/useOrders";
 import OrderBox from "../ui/orderBox";
+import { MdToggleOff } from "react-icons/md";
+import { CgMore } from "react-icons/cg";
 
 function Profile() {
   const {
@@ -43,6 +46,12 @@ function Profile() {
             dir="ltr"
           />
           <span className="text-white">شماره همراه</span>
+        </div>
+        <div className="flex flex-col">
+          <p className="bg-slate-900 text-white px-3 py-1 rounded-lg flex items-center gap-2">
+            ماشین های آپلود شده
+          </p>
+          <div className="">Cars</div>
         </div>
       </form>
     </div>
