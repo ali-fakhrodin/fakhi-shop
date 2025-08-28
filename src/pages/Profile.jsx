@@ -1,4 +1,5 @@
 import { useUser } from "../features/authentication/useUser";
+import { useCars } from "../features/cars/useCars";
 import { useOrders } from "../features/orders/useOrders";
 import OrderBox from "../ui/orderBox";
 import ProductListItem from "../ui/ProductListItem";
@@ -8,13 +9,15 @@ function Profile() {
     user: { user },
   } = useUser();
 
+  const { cars, isLoading: gettingCars } = useCars();
+  console.log(cars);
   const { isLoading, orders } = useOrders();
 
   return (
     <div className="flex flex-col gap-10 md:flex-row justify-around items-center bg-slate-400 min-h-[54vh] mt-4 rounded-xl overflow-y-scroll">
       <div className="w-full md:w-1/2 flex items-center md:items-start flex-col gap-1 h-[17rem] mb-5 md:mb-0 md:h-[23rem] overflow-y-scroll py-4 px-4">
         {!isLoading
-          ? orders.data.map((order) => <OrderBox data={order} />)
+          ? orders.data.map((order) => <OrderBox data={order} key={order.id} />)
           : null}
       </div>
 
@@ -34,6 +37,7 @@ function Profile() {
             value={user.email}
             className="w-[63%] py-2 px-3 rounded-md"
             dir="ltr"
+            // onChange={}
           />
           <span className="text-white">ایمیل</span>
         </div>
