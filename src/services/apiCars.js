@@ -38,6 +38,7 @@ export async function createCar(newCar) {
 
 // Delete car
 
-export async function deleteCar() {
-  const { error, data } = await supabase.from("cars").delete().eq("id", "");
+export async function deleteCar(id) {
+  console.log(id)
+  const { error, data } = await supabase.from("cars").delete().eq("id", id);
 }
