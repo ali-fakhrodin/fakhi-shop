@@ -13,7 +13,7 @@ export async function createCar(newCar) {
   const imageName = `${Math.random()}-${newCar.image.name}`.replaceAll("/", "");
   const imagePath = `${supabaseUrl}/storage/v1/object/public/fakhi-shop/${imageName}`;
 
-  console.log(imagePath);
+  // console.log(imagePath);
   // 1. Create new car
 
   const { data, error } = await supabase
@@ -34,4 +34,10 @@ export async function createCar(newCar) {
   const { error: storageError } = await supabase.storage
     .from("fakhi-shop")
     .upload(imageName, newCar.image);
+}
+
+// Delete car
+
+export async function deleteCar() {
+  const { error, data } = await supabase.from("cars").delete().eq("id", "");
 }

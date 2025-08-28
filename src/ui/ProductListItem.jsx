@@ -1,8 +1,9 @@
+import toast from "react-hot-toast";
 import { BiEdit, BiTrash } from "react-icons/bi";
 
 function ProductListItem({ data }) {
   function deleteCar() {
-    
+    toast.dismiss("s");
   }
 
   return (
@@ -13,10 +14,10 @@ function ProductListItem({ data }) {
       </div>
 
       <div className="flex gap-2">
-        <button className="text-red-700 hover:text-red-200">
-          <BiTrash onClick={deleteCar} />
+        <button className="text-red-700 hover:text-red-200" onClick={deleteCar} type="button">
+          <BiTrash />
         </button>
-        <button className="">
+        <button className="" type="button">
           <BiEdit />
         </button>
       </div>
