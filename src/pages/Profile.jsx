@@ -24,7 +24,7 @@ function Profile() {
           ? orders.data.map((order) => <OrderBox data={order} key={order.id} />)
           : null}
       </div>
-          <Toaster/>
+      <Toaster />
       <form className="h-[25vh] flex w-[100%] md:w-1/2 flex-col justify-center items-center gap-3">
         <div className="flex items-center justify-center gap-2 w-full text-sm md:text-[16px]">
           <input
@@ -60,9 +60,11 @@ function Profile() {
           </p>
 
           <div className="flex flex-col gap-1 max-h-[4rem] md:max-h-[8.5rem] mb-4 md:mb-0 overflow-y-auto">
-            {!gettingCars ? cars.map((car) => (
-              <ProductListItem data={car} key={car.id}/>
-            )): <p className="text-white text-center">درحال بارگیری...</p>}
+            {!gettingCars ? (
+              cars.map((car) => <ProductListItem data={car} key={car.id} />)
+            ) : (
+              <p className="text-white text-center">درحال بارگیری...</p>
+            )}
           </div>
         </div>
       </form>

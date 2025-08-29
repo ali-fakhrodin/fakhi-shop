@@ -1,13 +1,21 @@
-import toast from "react-hot-toast";
 import { BiEdit, BiTrash } from "react-icons/bi";
 import { useDeleteCar } from "../features/cars/useDeleteCar";
+import Swal from "sweetalert2";
 
 function ProductListItem({ data }) {
   const { deleteCar, isDeleting } = useDeleteCar();
   function handleDeleteCar() {
-    console.log(data.id);
-    console.log(isDeleting);
-    deleteCar(data.id)
+    Swal.fire({
+      text: "آیا از حذف ماشین مطمئنی؟",
+      confirmButtonText: "حذف",
+      showCancelButton: true,
+      cancelButtonText: "لغو",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteCar(data.id);
+        Swal.fire("حذف شد", "", "success");
+      }
+    });
   }
 
   return (
