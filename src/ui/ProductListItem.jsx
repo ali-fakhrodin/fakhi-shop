@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 
 function ProductListItem({ data }) {
   const { deleteCar, isDeleting } = useDeleteCar();
+
   function handleDeleteCar() {
     Swal.fire({
       text: "آیا از حذف ماشین مطمئنی؟",
@@ -15,6 +16,20 @@ function ProductListItem({ data }) {
         deleteCar(data.id);
         Swal.fire("حذف شد", "", "success");
       }
+    });
+  }
+  function handleEditCar() {
+    Swal.fire({
+      input: true,
+      showCancelButton: true,
+      confirmButtonText: "تایید",
+      cancelButtonText: "لغو",
+      html: `<div class='flex flex-col items-center gap-2 '>
+      <input name='car' class='w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200' autofocus placeHolder='اسم ماشین'/>
+      <input name='price' class='w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200' autofocus placeHolder='قمیت'/>
+      <textarea name='desc' class='w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200' autofocus placeHolder='توضیحات'> d</textarea>
+      <input name='img' type="file" class='w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200' autofocus placeHolder='تصویر'/>
+      </div>`,
     });
   }
 
@@ -33,7 +48,7 @@ function ProductListItem({ data }) {
         >
           <BiTrash />
         </button>
-        <button className="" type="button">
+        <button className="" type="button" onClick={handleEditCar}>
           <BiEdit />
         </button>
       </div>
