@@ -25,10 +25,11 @@ function ProductListItem({ data }) {
       confirmButtonText: "تایید",
       cancelButtonText: "لغو",
       html: `<div class='flex flex-col items-center gap-2 '>
-      <input name='car' class='w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200' autofocus placeHolder='اسم ماشین'/>
-      <input name='price' class='w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200' autofocus placeHolder='قمیت'/>
-      <textarea name='desc' class='w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200' autofocus placeHolder='توضیحات'> d</textarea>
-      <input name='img' type="file" class='w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200' autofocus placeHolder='تصویر'/>
+      <input name='car' value="${data.name}" class='w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200' autofocus placeHolder='اسم ماشین'/>
+      <input name='price' value="${data.price}" class='w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200' autofocus placeHolder='قمیت'/>
+      <textarea name='desc' class='w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200' autofocus placeHolder='توضیحات'>${data.desc}</textarea>
+      <img name='img' src="${data.src}" class='w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200' alt='تصویر'/>
+      <input name='img' src="${data.src}" type="file" class='w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200' autofocus placeHolder='تصویر'/>
       </div>`,
     });
   }
