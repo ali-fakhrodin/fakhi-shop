@@ -2,6 +2,10 @@ import supabase, { supabaseUrl } from "./supabase";
 
 export async function getCars() {
   let { data, error } = await supabase.from("cars").select("*");
+  await supabase.storage
+    .from("fakhi-shop")
+    .remove(["object-path-2", "folder/avatar2.png"]);
+
   if (error) {
     throw new Error("Cars could not be lodaed");
   }
@@ -13,7 +17,6 @@ export async function createCar(newCar) {
   const imageName = `${Math.random()}-${newCar.image.name}`.replaceAll("/", "");
   const imagePath = `${supabaseUrl}/storage/v1/object/public/fakhi-shop/${imageName}`;
 
-  // console.log(imagePath);
   // 1. Create new car
 
   const { data, error } = await supabase
@@ -38,8 +41,12 @@ export async function createCar(newCar) {
 
 // Delete car
 
-export async function deleteCar(id) {
+export async function deleteCar({ id, src }) {
   const { error, data } = await supabase.from("cars").delete().eq("id", id);
+
+  const { error: bucketErr } = await supabase.storage
+    .from("fakhi-shop")
+    .remove([src.slice(77, -1)]);
 }
 
 export async function editCar(id) {

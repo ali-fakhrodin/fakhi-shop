@@ -48,7 +48,6 @@ function Products() {
     (a, b) => (b[field] - a[field]) * modifire
   );
 
-  console.log(sortedData.length);
   return (
     <>
       <StyledContainer className="grid">
@@ -77,7 +76,6 @@ function Products() {
                   <p className="text-red-800">
                     متاسفانه ماشین مورد نظر شما پیدا نشد!
                   </p>
-
                 </div>
               )}
             </div>
