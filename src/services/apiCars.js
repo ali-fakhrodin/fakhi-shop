@@ -46,7 +46,7 @@ export async function deleteCar({ id, src }) {
 
   const { error: bucketErr } = await supabase.storage
     .from("fakhi-shop")
-    .remove([src.slice(77, -1)]);
+    .remove([src.slice(77)]);
 }
 
 export async function editCar(id) {

@@ -6,7 +6,7 @@ function ProductListItem({ data }) {
   const { deleteCar, isDeleting } = useDeleteCar();
 
   const { id, src } = data;
-  // console.log(src)
+
   function handleDeleteCar() {
     Swal.fire({
       text: "آیا از حذف ماشین مطمئنی؟",
@@ -16,10 +16,10 @@ function ProductListItem({ data }) {
     }).then((result) => {
       if (result.isConfirmed) {
         deleteCar({ id, src });
-        Swal.fire("حذف شد", "", "success");
       }
     });
   }
+
   function handleEditCar() {
     Swal.fire({
       input: true,
