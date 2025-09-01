@@ -1,8 +1,10 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteCar as deleteCarApi } from "../../services/apiCars";
 import Swal from "sweetalert2";
 
 export function useDeleteCar() {
+  const queryClient = useQueryClient();
+
   const {
     mutate: deleteCar,
     isLoading: isDeleting,
@@ -19,6 +21,8 @@ export function useDeleteCar() {
         timer: 2000,
         timerProgressBar: true,
       });
+
+      queryClient.invalidateQueries();
     },
     onError: () => {
       Swal.fire({
