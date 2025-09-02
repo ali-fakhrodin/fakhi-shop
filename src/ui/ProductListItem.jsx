@@ -36,36 +36,35 @@ function ProductListItem({ data }) {
         confirmButtonText: "تایید",
         cancelButtonText: "لغو",
         html: (
-          <div class="flex flex-col items-center gap-2 ">
+          <div className="flex flex-col items-center gap-2 ">
             <input
+              defaultValue={editedName}
               name="car"
-              value={editedName}
-              onChange={(e) => console.log(e.target.value)}
-              
-              class="w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200"
-              autofocus
-              placeHolder="اسم ماشین"
+              onChange={(e) => setEditedName(e.target.value)}
+              className="w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200"
+              placeholder="اسم ماشین"
+              autoFocus
             />
             <input
+              defaultValue={editedPrice}
               name="price"
-              value={editedPrice}
               onChange={(e) => setEditedPrice(e.target.value)}
-              class="w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200"
-              placeHolder="قمیت"
+              className="w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200"
+              placeholder="قمیت"
             />
             <textarea
+              defaultValue={editedDesc}
               name="desc"
-              value={editedDesc}
               onChange={(e) => setEditedDesc(e.target.value)}
-              class="w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200"
-              placeHolder="توضیحات"
+              className="w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200"
+              placeholder="توضیحات"
             />
 
             <img
               name="img"
               src={editedSrc}
               onChange={(e) => setEditedSrc(e.target.src)}
-              class="w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200"
+              className="w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200"
               alt="تصویر"
             />
 
@@ -73,8 +72,8 @@ function ProductListItem({ data }) {
               name="img"
               accept="image/*"
               type="file"
-              class="w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200"
-              placeHolder="تصویر"
+              className="w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200"
+              placeholder="تصویر"
             />
           </div>
         ),
