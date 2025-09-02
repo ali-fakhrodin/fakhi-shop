@@ -49,12 +49,12 @@ export async function deleteCar({ id, src }) {
     .remove([src.slice(77)]);
 }
 
-export async function editCar(id) {
+export async function editCar({ id, src, desc, name, price }) {
   const { data, error } = await supabase
     .from("cars")
-    .update({ name: "val", price: 5, src: "//", desc: "d" })
+    .update({ name, price, src, desc })
     .eq("id", id)
     .select();
 
-    console.log(data)
+  console.log(name);
 }

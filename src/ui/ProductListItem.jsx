@@ -2,11 +2,19 @@ import { BiEdit, BiTrash } from "react-icons/bi";
 import { useDeleteCar } from "../features/cars/useDeleteCar";
 import Swal from "sweetalert2";
 import useEditCar from "../features/cars/useEditCar";
+import { useState } from "react";
+import withReactContent from "sweetalert2-react-content";
 
 function ProductListItem({ data }) {
   const { deleteCar, isDeleting } = useDeleteCar();
   const { editCar, isEditting } = useEditCar();
-  const { id, src } = data;
+  const { id, src, name, price, desc } = data;
+
+  const [editedName, setEditedName] = useState(name);
+  const [editedPrice, setEditedPrice] = useState(price);
+  const [editedDesc, setEditedDesc] = useState(desc);
+  const [editedSrc, setEditedSrc] = useState(src);
+  console.log(editedName);
 
   function handleDeleteCar() {
     Swal.fire({
@@ -20,23 +28,60 @@ function ProductListItem({ data }) {
       }
     });
   }
-
   function handleEditCar() {
-    Swal.fire({
-      input: true,
-      showCancelButton: true,
-      confirmButtonText: "تایید",
-      cancelButtonText: "لغو",
-      html: `<div class='flex flex-col items-center gap-2 '>
-      <input name='car' value="${data.name}" class='w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200' autofocus placeHolder='اسم ماشین'/>
-      <input name='price' value="${data.price}" class='w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200' placeHolder='قمیت'/>
-      <textarea name='desc' class='w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200' placeHolder='توضیحات'>${data.desc}</textarea>
-      <img name='img' src="${src}" class='w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200' alt='تصویر'/>
-      <input name='img' accept="image/*" type="file" class='w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200' placeHolder='تصویر'/>
-      </div>`,
-    }).then((result) => {
-      if (result.isConfirmed) editCar(id);
-    });
+    withReactContent(Swal)
+      .fire({
+        title: "ویرایش محصول",
+        showCancelButton: true,
+        confirmButtonText: "تایید",
+        cancelButtonText: "لغو",
+        html: (
+          <div class="flex flex-col items-center gap-2 ">
+            <input
+              name="car"
+              value={editedName}
+              onChange={(e) => console.log(e.target.value)}
+              
+              class="w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200"
+              autofocus
+              placeHolder="اسم ماشین"
+            />
+            <input
+              name="price"
+              value={editedPrice}
+              onChange={(e) => setEditedPrice(e.target.value)}
+              class="w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200"
+              placeHolder="قمیت"
+            />
+            <textarea
+              name="desc"
+              value={editedDesc}
+              onChange={(e) => setEditedDesc(e.target.value)}
+              class="w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200"
+              placeHolder="توضیحات"
+            />
+
+            <img
+              name="img"
+              src={editedSrc}
+              onChange={(e) => setEditedSrc(e.target.src)}
+              class="w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200"
+              alt="تصویر"
+            />
+
+            <input
+              name="img"
+              accept="image/*"
+              type="file"
+              class="w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200"
+              placeHolder="تصویر"
+            />
+          </div>
+        ),
+      })
+      .then((result) => {
+        if (result.isConfirmed) editCar({ id, src, desc, editedName, price });
+      });
   }
 
   return (
