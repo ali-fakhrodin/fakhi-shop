@@ -1,10 +1,11 @@
 import { BiEdit, BiTrash } from "react-icons/bi";
 import { useDeleteCar } from "../features/cars/useDeleteCar";
 import Swal from "sweetalert2";
+import useEditCar from "../features/cars/useEditCar";
 
 function ProductListItem({ data }) {
   const { deleteCar, isDeleting } = useDeleteCar();
-
+  const { editCar, isEditting } = useEditCar();
   const { id, src } = data;
 
   function handleDeleteCar() {
@@ -30,9 +31,11 @@ function ProductListItem({ data }) {
       <input name='car' value="${data.name}" class='w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200' autofocus placeHolder='اسم ماشین'/>
       <input name='price' value="${data.price}" class='w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200' placeHolder='قمیت'/>
       <textarea name='desc' class='w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200' placeHolder='توضیحات'>${data.desc}</textarea>
-      <img name='img' src="${data.src}" class='w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200' alt='تصویر'/>
+      <img name='img' src="${src}" class='w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200' alt='تصویر'/>
       <input name='img' accept="image/*" type="file" class='w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200' placeHolder='تصویر'/>
       </div>`,
+    }).then((result) => {
+      if (result.isConfirmed) editCar(id);
     });
   }
 
