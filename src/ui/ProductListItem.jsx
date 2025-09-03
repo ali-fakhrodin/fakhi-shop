@@ -13,8 +13,7 @@ function ProductListItem({ data }) {
   const [editedName, setEditedName] = useState(name);
   const [editedPrice, setEditedPrice] = useState(price);
   const [editedDesc, setEditedDesc] = useState(desc);
-  const [editedSrc, setEditedSrc] = useState(src);
-  const [hasNewImg, setHasNewImg] = useState(false);
+  const [editedImg, setEditedImg] = useState(src);
 
   function handleDeleteCar() {
     Swal.fire({
@@ -47,6 +46,7 @@ function ProductListItem({ data }) {
             />
             <input
               defaultValue={editedPrice}
+              type="number"
               name="price"
               onChange={(e) => setEditedPrice(e.target.value)}
               className="w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200"
@@ -62,7 +62,7 @@ function ProductListItem({ data }) {
 
             <img
               name="img"
-              src={editedSrc}
+              src={editedImg}
               className="w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200"
               alt="تصویر"
             />
@@ -73,10 +73,7 @@ function ProductListItem({ data }) {
               type="file"
               className="w-[80%] px-2 py-1 rounded-lg text-md bg-slate-200"
               placeholder="تصویر"
-              onChange={(e) => {
-                setEditedSrc(e.target.value);
-                setHasNewImg(true);
-              }}
+              onChange={(e) => setEditedImg(e.target)}
             />
           </div>
         ),
@@ -85,11 +82,11 @@ function ProductListItem({ data }) {
         if (result.isConfirmed)
           editCar({
             id,
-            editedSrc,
             editedName,
             editedPrice,
             editedDesc,
-            hasNewImg,
+            editedImg,
+            oldSrc: src,
           });
       });
   }

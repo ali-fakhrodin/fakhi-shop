@@ -51,7 +51,7 @@ function AddNewCar() {
         <div className={inputContainerClassname}>
           <label htmlFor="desc">توضیحات</label>
           <textarea
-            type=""
+            type="text"
             id="desc"
             className={inputClassname}
             {...register("desc", {

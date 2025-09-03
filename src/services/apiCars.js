@@ -39,8 +39,6 @@ export async function createCar(newCar) {
     .upload(imageName, newCar.image);
 }
 
-// Delete car
-
 export async function deleteCar({ id, src }) {
   const { error, data } = await supabase.from("cars").delete().eq("id", id);
 
@@ -51,25 +49,40 @@ export async function deleteCar({ id, src }) {
 
 export async function editCar({
   id,
-  editedSrc,
+  editedImg,
   editedName,
   editedPrice,
   editedDesc,
-  hasNewImg,
+  oldSrc,
 }) {
-  // Delete img
-  if (hasNewImg) {
-    const { error: bucketErr } = await supabase.storage
-      .from("fakhi-shop")
-      .remove([src.slice(77)]);
-  }
+  console.log(editedImg)
+  const imageName = `${Math.random()}-${editedImg.files[0].name}`.replaceAll(
+    "/",
+    ""
+  );
+  const imagePath = `${supabaseUrl}/storage/v1/object/public/fakhi-shop/${imageName}`;
+
+  // Insert img
+  const { error: storageError } = await supabase.storage
+    .from("fakhi-shop")
+    .upload(imageName, editedImg.files[0]);
 
   const { data, error } = await supabase
     .from("cars")
-    .update({ editedName, editedPrice, editedSrc, editedDesc, hasNewImg })
+    .update({
+      name: editedName,
+      price: editedPrice,
+      src: imagePath,
+      desc: editedDesc,
+    })
     .eq("id", id)
     .select();
 
-  console.log(hasNewImg);
-  // console.log(editedName)
+  console.log(oldSrc.slice(77));
+
+  // Delete img
+  const { error: bucketErr } = await supabase.storage
+    .from("fakhi-shop")
+    .remove([oldSrc.slice(77)]);
+
 }

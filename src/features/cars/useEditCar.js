@@ -3,22 +3,7 @@ import { editCar as editCarApi } from "../../services/apiCars";
 
 function useEditCar() {
   const { isLoading: isEditting, mutate: editCar } = useMutation({
-    mutationFn: ({
-      id,
-      editedSrc,
-      editedName,
-      editedPrice,
-      editedDesc,
-      hasNewImg,
-    }) =>
-      editCarApi({
-        id,
-        editedSrc,
-        editedName,
-        editedPrice,
-        editedDesc,
-        hasNewImg,
-      }),
+    mutationFn: editCarApi,
   });
 
   return { editCar, isEditting };
