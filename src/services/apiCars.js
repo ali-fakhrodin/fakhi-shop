@@ -49,12 +49,27 @@ export async function deleteCar({ id, src }) {
     .remove([src.slice(77)]);
 }
 
-export async function editCar({ id, src, desc, name, price }) {
+export async function editCar({
+  id,
+  editedSrc,
+  editedName,
+  editedPrice,
+  editedDesc,
+  hasNewImg,
+}) {
+  // Delete img
+  if (hasNewImg) {
+    const { error: bucketErr } = await supabase.storage
+      .from("fakhi-shop")
+      .remove([src.slice(77)]);
+  }
+
   const { data, error } = await supabase
     .from("cars")
-    .update({ name, price, src, desc })
+    .update({ editedName, editedPrice, editedSrc, editedDesc, hasNewImg })
     .eq("id", id)
     .select();
 
-  console.log(name);
+  console.log(hasNewImg);
+  // console.log(editedName)
 }
