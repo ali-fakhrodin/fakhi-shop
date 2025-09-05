@@ -55,7 +55,7 @@ export async function editCar({
   editedDesc,
   oldSrc,
 }) {
-  console.log(editedImg)
+
   const imageName = `${Math.random()}-${editedImg.files[0].name}`.replaceAll(
     "/",
     ""
