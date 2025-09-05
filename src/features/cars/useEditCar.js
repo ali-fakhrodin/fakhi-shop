@@ -8,6 +8,9 @@ function useEditCar() {
     onSuccess: () => {
       toast.success("ویرایش شد");
     },
+    onError: () => {
+      toast.error("لطفاً دوباره امتحان کنید!");
+    },
   });
 
   return { editCar, isEditting };
