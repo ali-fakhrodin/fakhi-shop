@@ -55,17 +55,22 @@ export async function editCar({
   editedDesc,
   oldSrc,
 }) {
-
-  const imageName = `${Math.random()}-${editedImg.files[0].name}`.replaceAll(
-    "/",
-    ""
-  );
-  const imagePath = `${supabaseUrl}/storage/v1/object/public/fakhi-shop/${imageName}`;
-
-  // Insert img
-  const { error: storageError } = await supabase.storage
-    .from("fakhi-shop")
-    .upload(imageName, editedImg.files[0]);
+  console.log(oldSrc);
+  console.log(editedImg);
+  // if (oldSrc !== editedImg) {
+    const imageName = `${Math.random()}-${editedImg.files[0].name}`.replaceAll(
+      "/",
+      ""
+    );
+    const imagePath = `${supabaseUrl}/storage/v1/object/public/fakhi-shop/${imageName}`;
+    
+    // Insert img
+    console.log(typeof editedImg);
+    // if(typeof(editedImg))
+    const { error: storageError } = await supabase.storage
+      .from("fakhi-shop")
+      .upload(imageName, editedImg.files[0]);
+  // }
 
   const { data, error } = await supabase
     .from("cars")
@@ -84,5 +89,4 @@ export async function editCar({
   const { error: bucketErr } = await supabase.storage
     .from("fakhi-shop")
     .remove([oldSrc.slice(77)]);
-
 }

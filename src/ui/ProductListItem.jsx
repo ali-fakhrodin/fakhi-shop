@@ -4,13 +4,12 @@ import Swal from "sweetalert2";
 import useEditCar from "../features/cars/useEditCar";
 import { useState } from "react";
 import withReactContent from "sweetalert2-react-content";
-import toast, { LoaderIcon } from "react-hot-toast";
 
 function ProductListItem({ data }) {
   const { deleteCar, isDeleting } = useDeleteCar();
   const { editCar, isEditting } = useEditCar();
   const { id, src, name, price, desc } = data;
-  console.log(id, src, name, price, desc);
+  // console.log(id, src, name, price, desc);
   const [editedName, setEditedName] = useState(name);
   const [editedPrice, setEditedPrice] = useState(price);
   const [editedDesc, setEditedDesc] = useState(desc);
@@ -89,10 +88,14 @@ function ProductListItem({ data }) {
             editedImg,
             oldSrc: src,
           });
-        console.log(editedName, editedPrice, editedDesc, editedImg);
       });
   }
-  if (isEditting) return <p className="bg-slate-100 hover:bg-slate-500 hover:text-white flex justify-between items-center gap-2 px-2 py-2 rounded-lg">در حال ویرایش..</p>;
+  if (isEditting)
+    return (
+      <p className="bg-slate-100 hover:bg-slate-500 hover:text-white flex justify-between items-center gap-2 px-2 py-2 rounded-lg">
+        در حال ویرایش..
+      </p>
+    );
   return (
     <div className="bg-slate-100 hover:bg-slate-500 hover:text-white flex justify-between items-center gap-2 px-2 py-2 rounded-lg">
       <div className="flex gap-3 text-[15px]">
