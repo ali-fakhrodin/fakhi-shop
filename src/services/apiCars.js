@@ -55,13 +55,11 @@ export async function editCar({
   editedDesc,
   oldSrc,
 }) {
-  console.log(oldSrc);
-  console.log(editedImg);
-
   const image = typeof editedImg === "string" ? editedImg : editedImg.files[0];
-  // if (oldSrc !== editedImg) {
+
+  console.log(typeof image)
   const imageName = `${Math.random()}-${
-    typeof image === "string" ? editedImg.image : editedImg.image.name
+    typeof image === "object" ? editedImg.name : editedImg
   }`.replaceAll("/", "");
   const imagePath = `${supabaseUrl}/storage/v1/object/public/fakhi-shop/${imageName}`;
 
@@ -80,7 +78,10 @@ export async function editCar({
     })
     .eq("id", id)
     .select();
-  // }
+
+  // console.log(image);
+  // console.log(editedImg);
+  // console.log(imagePath);
 
   console.log(oldSrc.slice(77));
 
