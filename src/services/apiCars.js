@@ -57,31 +57,30 @@ export async function editCar({
 }) {
   console.log(oldSrc);
   console.log(editedImg);
+
+  const image = typeof editedImg === "string" ? editedImg : editedImg.files[0];
   // if (oldSrc !== editedImg) {
-    const imageName = `${Math.random()}-${editedImg.files[0].name}`.replaceAll(
-      "/",
-      ""
-    );
-    const imagePath = `${supabaseUrl}/storage/v1/object/public/fakhi-shop/${imageName}`;
-    
-    // Insert img
-    console.log(typeof editedImg);
-    // if(typeof(editedImg))
-    const { error: storageError } = await supabase.storage
-      .from("fakhi-shop")
-      .upload(imageName, editedImg.files[0]);
-  // }
+  const imageName = `${Math.random()}-${
+    typeof image === "string" ? editedImg.image : editedImg.image.name
+  }`.replaceAll("/", "");
+  const imagePath = `${supabaseUrl}/storage/v1/object/public/fakhi-shop/${imageName}`;
+
+  // Insert img
+  const { error: storageError } = await supabase.storage
+    .from("fakhi-shop")
+    .upload(imageName, image);
 
   const { data, error } = await supabase
     .from("cars")
     .update({
       name: editedName,
       price: editedPrice,
-      src: imagePath,
+      src: editedImg === oldSrc ? editedImg : imagePath,
       desc: editedDesc,
     })
     .eq("id", id)
     .select();
+  // }
 
   console.log(oldSrc.slice(77));
 
