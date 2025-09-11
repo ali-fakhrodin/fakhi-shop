@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { ModalContext } from "../../pages/Profile";
-import { BiX } from "react-icons/bi";
+import { BiLoader, BiX } from "react-icons/bi";
 import useEditCar from "./useEditCar";
 import toast from "react-hot-toast";
 
@@ -13,7 +13,7 @@ function EditCarModal({ data }) {
   const [editedPrice, setEditedPrice] = useState(price);
   const [editedDesc, setEditedDesc] = useState(desc);
   const [editedImg, setEditedImg] = useState(src);
-  console.log(isEditting);
+
   useEffect(() => {
     setEditedName(name);
     setEditedPrice(price);
@@ -38,13 +38,13 @@ function EditCarModal({ data }) {
     setEditedImg("");
   }
 
-  if (!isOpenEditModal) return;
   if (isEditting)
     return (
-      <p className="bg-slate-100 hover:bg-slate-500 hover:text-white flex justify-between items-center gap-2 py-2 rounded-lg absolute top-1/2 mx-auto p-2 px-5 ">
-        در حال ویرایش..
+      <p className="bg-slate-100 hover:bg-slate-500 hover:text-white flex justify-between items-center gap-2 py-2 rounded-lg absolute top-1/2 mx-auto p-2 px-5">
+        <BiLoader /> در حال ویرایش
       </p>
     );
+  if (!isOpenEditModal) return;
   return (
     <div>
       <form className="bg-white flex flex-col items-center gap-2 py-5 rounded-xl right-0 left-0 mx-auto top-1/4 w-[35%] absolute z-30">

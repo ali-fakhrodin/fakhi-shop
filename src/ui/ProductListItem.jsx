@@ -1,4 +1,4 @@
-import { BiEdit, BiTrash } from "react-icons/bi";
+import { BiEdit, BiLoader, BiTrash } from "react-icons/bi";
 import { useDeleteCar } from "../features/cars/useDeleteCar";
 import Swal from "sweetalert2";
 import useEditCar from "../features/cars/useEditCar";
@@ -31,6 +31,12 @@ function ProductListItem({ data }) {
     });
   }
 
+  if (isDeleting)
+    return (
+      <p className="bg-slate-100 hover:bg-slate-500 hover:text-white flex justify-between items-center gap-2 py-2 rounded-lg absolute top-1/2 mx-auto p-2 px-5 ">
+        <BiLoader /> در حال حذف
+      </p>
+    );
   return (
     <div className="bg-slate-100 hover:bg-slate-500 hover:text-white flex justify-between items-center gap-2 px-2 py-2 rounded-lg">
       <div className="flex gap-3 text-[15px]">
