@@ -24,7 +24,6 @@ function EditCarModal({ data }) {
   function submitEditBtn(e) {
     e.preventDefault();
     setIsOpenEditModal(false);
-
     editCar({
       id,
       editedName,
@@ -33,6 +32,10 @@ function EditCarModal({ data }) {
       editedImg,
       oldSrc: src,
     });
+    setEditedName("");
+    setEditedPrice("");
+    setEditedDesc("");
+    setEditedImg("");
   }
 
   if (!isOpenEditModal) return;
@@ -101,7 +104,14 @@ function EditCarModal({ data }) {
           >
             تایید
           </button>
-          <button className="bg-slate-500 hover:bg-slate-400 text-white w-[35%] py-1 rounded-lg">
+          <button
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              setIsOpenEditModal(false);
+            }}
+            className="bg-slate-500 hover:bg-slate-400 text-white w-[35%] py-1 rounded-lg"
+          >
             لغو
           </button>
         </div>
