@@ -55,24 +55,24 @@ export async function editCar({
   editedDesc,
   oldSrc,
 }) {
-  // const image = typeof editedImg === "string" ? editedImg : editedImg.files[0];
+  const image = typeof editedImg === "string" ? editedImg : editedImg.files[0];
 
-  // const imageName = `${Math.random()}-${
-  //   typeof image === "object" ? editedImg.name : editedImg
-  // }`.replaceAll("/", "");
-  // const imagePath = `${supabaseUrl}/storage/v1/object/public/fakhi-shop/${imageName}`;
+  const imageName = `${Math.random()}-${
+    typeof image === "object" ? editedImg.name : editedImg
+  }`.replaceAll("/", "");
+  const imagePath = `${supabaseUrl}/storage/v1/object/public/fakhi-shop/${imageName}`;
 
   // Insert img
-  // const { error: storageError } = await supabase.storage
-  //   .from("fakhi-shop")
-  //   .upload(imageName, image);
+  const { error: storageError } = await supabase.storage
+    .from("fakhi-shop")
+    .upload(imageName, image);
 
   const { data, error } = await supabase
     .from("cars")
     .update({
       name: editedName,
       price: editedPrice,
-      src: "editedImg === oldSrc ? editedImg : imagePath",
+      src: editedImg === oldSrc ? editedImg : imagePath,
       desc: editedDesc,
     })
     .eq("id", id)
@@ -85,7 +85,7 @@ export async function editCar({
   console.log(oldSrc.slice(77));
 
   // Delete img
-  // const { error: bucketErr } = await supabase.storage
-  //   .from("fakhi-shop")
-  //   .remove([oldSrc.slice(77)]);
+  const { error: bucketErr } = await supabase.storage
+    .from("fakhi-shop")
+    .remove([oldSrc.slice(77)]);
 }

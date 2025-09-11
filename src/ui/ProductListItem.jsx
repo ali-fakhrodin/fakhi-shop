@@ -9,22 +9,11 @@ function ProductListItem({ data }) {
   const { isOpenEditModal, setIsOpenEditModal, setModalData } =
     useContext(ModalContext);
   const { id, src, name, price, desc } = data;
-  console.log(isOpenEditModal);
 
   const { deleteCar, isDeleting } = useDeleteCar();
-  const { editCar, isEditting } = useEditCar();
   // console.log(id, src, name, price, desc);
 
   function handleEditCar() {
-    // if (result.isConfirmed)
-    //   editCar({
-    //     id,
-    //     editedName,
-    //     editedPrice,
-    //     editedDesc,
-    //     editedImg,
-    //     oldSrc: src,
-    //   });
     setIsOpenEditModal(true);
     setModalData(data);
   }
@@ -42,12 +31,6 @@ function ProductListItem({ data }) {
     });
   }
 
-  if (isEditting)
-    return (
-      <p className="bg-slate-100 hover:bg-slate-500 hover:text-white flex justify-between items-center gap-2 px-2 py-2 rounded-lg">
-        در حال ویرایش..
-      </p>
-    );
   return (
     <div className="bg-slate-100 hover:bg-slate-500 hover:text-white flex justify-between items-center gap-2 px-2 py-2 rounded-lg">
       <div className="flex gap-3 text-[15px]">
